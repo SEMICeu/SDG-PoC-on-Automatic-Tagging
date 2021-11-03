@@ -1,0 +1,34 @@
+{
+  "items": [
+    {
+      "name": "sdg-tag",
+      "mandatory": true,
+      "description": "The sdg-tag will contain the text sdg identifying the page as part of the Single Digital Gateway"
+    },
+    {
+      "name": "DC.ISO3166",
+      "mandatory": true,
+      "description": "It will contain the two characters ISO 3166-1 representation of names of countries"
+    },
+    {
+      "name": "DC.location",
+      "mandatory": false,
+      "description": "Describes the NUTS or LAU location id for which the content on the page is valid (http://purl.org/dc/terms/Location)"
+    },
+    {
+      "name": "DC.service",
+      "mandatory": true,
+      "description": "It will contain the information about the type of content present on the page (http://purl.org/dc/dcmitype/Service)"
+    },
+    {
+      "name": "policy-code",
+      "mandatory": true,
+      "description": "It will contain the information about the code of the content area covered by the page according to Annex I and II or the full name of the assistance service in Annex III"
+    },
+    {
+      "name": "DC.Policy",
+      "mandatory": false,
+      "description": "It will contain the information about the name  of the content area covered by the page according to Annex I and II (http://purl.org/dc/terms/Policy)"
+    }
+  ]
+}

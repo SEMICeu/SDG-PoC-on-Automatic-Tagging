@@ -1,3 +1,5 @@
+/* eslint-disable no-undef*/
+
 function getArray() {
   return $.getJSON("metatags.json");
 }
@@ -7,7 +9,11 @@ getArray().done(function (json) {
   var questions = [];
   $.each(json.items, function (key, val) {
     var name = val.name;
-    console.log(name);
+    if ($("meta[name=" + name + "]").length) {
+      console.log(name + "exist");
+    } else {
+      console.log(name + "does not exist");
+    }
   });
 });
 

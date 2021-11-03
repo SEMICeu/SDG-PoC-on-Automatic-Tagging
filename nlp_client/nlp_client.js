@@ -9,7 +9,7 @@ getArray().done(function (json) {
   var questions = [];
   $.each(json.items, function (key, val) {
     var name = val.name;
-    if ($("meta[name=" + name + "]").length) {
+    if ($("meta[name='" + name + "']").length) {
       console.log(name + "exist");
     } else {
       console.log(name + "does not exist");

@@ -21,7 +21,9 @@
     <element xsi:type="archimate:TechnologyService" name="DeploymentService" id="9585e6de-c19b-4f5a-b5b0-c763f986ae24"/>
     <element xsi:type="archimate:TechnologyInterface" name="HTTP (8080)" id="4fde620d-7afd-4950-8c6d-7f0e03cfe8ae"/>
     <element xsi:type="archimate:Node" name="Database Server 1" id="c8695c1f-b552-418d-854f-418da1d6395e"/>
-    <element xsi:type="archimate:SystemSoftware" name="MySQL" id="63172206-b254-43da-96d3-3ab39db2c6b2"/>
+    <element xsi:type="archimate:SystemSoftware" name="MySQL database" id="63172206-b254-43da-96d3-3ab39db2c6b2">
+      <documentation>nlp_poc</documentation>
+    </element>
     <element xsi:type="archimate:Artifact" name="Status Table" id="1ce55b15-4056-4602-81a0-7fe9d125fab7"/>
     <element xsi:type="archimate:TechnologyInterface" name="MySQL  Port (3306)" id="f62dab22-ad1c-450d-8c32-11bbead61646"/>
     <element xsi:type="archimate:TechnologyService" name="Database Service " id="7d8d2ad2-cb91-4f55-a47d-205bd46f3caf"/>
@@ -48,7 +50,7 @@
     <element xsi:type="archimate:SystemSoftware" name="Apache 2" id="id-f68ac5849bd64fe49eca2c9bd52911fe">
       <documentation>http://35.181.155.22:8890/</documentation>
     </element>
-    <element xsi:type="archimate:Node" name="Crawler" id="id-21de46a047644536b369aeb113d348eb"/>
+    <element xsi:type="archimate:Node" name="EC Crawler" id="id-21de46a047644536b369aeb113d348eb"/>
     <element xsi:type="archimate:TechnologyService" name="Container Service" id="id-45fe3ab6f32644ff9aefb5999791eb30"/>
     <element xsi:type="archimate:TechnologyInterface" name="HTTP (5000)" id="id-d0176fca3d9e4126aaf485d396ae5144"/>
     <element xsi:type="archimate:Node" name="File Server 5" id="id-4d3e592e2ae441e381735ec23516e114"/>
@@ -75,7 +77,7 @@
     <element xsi:type="archimate:TechnologyInterface" name="HTTP (80)" id="id-207e2460552b477287b62e06ce274594"/>
     <element xsi:type="archimate:Artifact" name="Postman Collection" id="id-ed54f6cb5a7c42c7955f24f3bb80f290"/>
     <element xsi:type="archimate:SystemSoftware" name="Spectral" id="id-e2356fdd96ef4e09b4e73030eec7eb22"/>
-    <element xsi:type="archimate:Artifact" name="Reference Table" id="id-65da7df29dd044bb87086420435e6b04"/>
+    <element xsi:type="archimate:Artifact" name="policy_codes table" id="id-65da7df29dd044bb87086420435e6b04"/>
   </folder>
   <folder name="Motivation" id="f909e4c4-ff69-450a-9fd8-dff99d9d81a4" type="motivation"/>
   <folder name="Implementation &amp; Migration" id="77d7a7ca-6a67-4bdb-9f3e-b53777a676ab" type="implementation_migration"/>
@@ -430,8 +432,8 @@
             <child xsi:type="archimate:DiagramObject" id="2de344c1-300e-4f69-9461-c3d575a35363" targetConnections="a899dcd5-70fa-4030-a5ce-6231491ea96c id-489859818bb44fff9d48c139e376c27a 47f4b79c-0388-4632-ad58-ed443f641f50" fillColor="#ff8080" archimateElement="b6f804fa-a0b4-46e5-b6fb-21c005a7b45c">
               <bounds x="24" y="180" width="84" height="37"/>
             </child>
-            <child xsi:type="archimate:DiagramObject" id="id-59be518c19144181a4769cc6d2fb4327" targetConnections="id-8df3f31805034b47a11f40a046fbeebd id-d8a1deb911824cb2912e05fa1bea0bf5 id-7bb1059f3e084856b08b8f99bd658b5f" fillColor="#ff8080" archimateElement="id-65da7df29dd044bb87086420435e6b04">
-              <bounds x="24" y="228" width="97" height="37"/>
+            <child xsi:type="archimate:DiagramObject" id="id-59be518c19144181a4769cc6d2fb4327" targetConnections="id-8df3f31805034b47a11f40a046fbeebd id-d8a1deb911824cb2912e05fa1bea0bf5 id-7bb1059f3e084856b08b8f99bd658b5f" fillColor="#cae7b8" archimateElement="id-65da7df29dd044bb87086420435e6b04">
+              <bounds x="24" y="228" width="121" height="37"/>
             </child>
           </child>
           <child xsi:type="archimate:DiagramObject" id="97a7a6c7-ac97-415b-8eda-c7d13a421ae7" archimateElement="f62dab22-ad1c-450d-8c32-11bbead61646">

@@ -4,6 +4,10 @@ function getConfig() {
   return $.getJSON("config.json");
 }
 
+function insertMetaTag(name, value) {
+  $("head").append('<meta name="' + name + '" content="' + value + '">');
+}
+
 function getParameters(json, includeOptionalTags) {
   //{
   // now you can use json
@@ -18,11 +22,21 @@ function getParameters(json, includeOptionalTags) {
       var mandatory = val.mandatory;
       if (mandatory) {
         console.log(name + " is mandatory");
-        metatagsArray.push(name);
+        if (val.hasOwnProperty("expectedValue")) {
+          console.log(val.expectedValue + " is expected");
+          insertMetaTag(name, val.expectedValue);
+        } else {
+          metatagsArray.push(name);
+        }
       } else {
         if (includeOptionalTags) {
           console.log(name + " is optional but requested");
-          metatagsArray.push(name);
+          if (val.hasOwnProperty("expectedValue")) {
+            console.log(val.expectedValue + " is expected");
+            insertMetaTag(name, val.expectedValue);
+          } else {
+            metatagsArray.push(name);
+          }
         } else {
           console.log(name + " is not mandatory and not requested");
         }
@@ -93,4 +107,3 @@ buildJson.php
     fclose($fh);  //close the dile
 ?>
 */
-

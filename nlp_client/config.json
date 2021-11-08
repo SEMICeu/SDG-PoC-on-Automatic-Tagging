@@ -4,7 +4,8 @@
     "payload": "{\"metatags\":$METATAGS$,\"url\":$URL$,\"text\":$TEXT$}"
   },
   "page": {
-    "elementToExtract": "body"
+    "elementToExtract": "body",
+    "includeOptionalTags": true
   },
   "metatags": [
     {

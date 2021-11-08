@@ -8,9 +8,10 @@ function insertMetaTag(name, value) {
   $("head").append('<meta name="' + name + '" content="' + value + '">');
 }
 
-function getParameters(json, includeOptionalTags) {
+function getParameters(json) {
   //{
   // now you can use json
+  var includeOptionalTags = json.page.includeOptionalTags;
   var metatagsArray = [];
   $.each(json.metatags, function (key, val) {
     var name = val.name;
@@ -74,7 +75,7 @@ function callApi(metatagsArray, elementToExtract, api_payload, api_url) {
 }
 
 getConfig().done(function (json) {
-  getParameters(json, true);
+  getParameters(json);
 });
 /* script.js
 var yourObject = {

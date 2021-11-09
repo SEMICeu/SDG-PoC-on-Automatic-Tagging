@@ -3,195 +3,119 @@ openapi: 3.0.2
 info:
   title: NLP API
   version: 1.0.0
-  description: |-
-    A sample API that uses a petstore as an example to demonstrate features
-    in the OpenAPI 3.0 specification
-  termsOfService: http://swagger.io/terms/
+  description: An API to expose the NLP Engine that enhance unstructured text
   contact:
-    name: Swagger API Team
-    url: http://swagger.io
-    email: apiteam@swagger.io
+    name: Catalogue of Services Team
+    url: https://github.com/catalogue-of-services-isa
+    email: isa2@ec.europa.eu
   license:
-    name: Apache 2.0
-    url: https://www.apache.org/licenses/LICENSE-2.0.html
+    name: MIT License
+    url: https://opensource.org/licenses/MIT
 servers:
-- url: http://petstore.swagger.io/api
+- url: http://35.181.155.22:5000/api
 paths:
-  /pets:
+  /canEnhance:
+    summary: check if the NLP engine is busy
     get:
-      parameters:
-      - style: form
-        name: tags
-        description: tags to filter by
-        schema:
-          type: array
-          items:
-            type: string
-        in: query
-        required: false
-      - name: limit
-        description: maximum number of results to return
-        schema:
-          format: int32
-          type: integer
-        in: query
-        required: false
+      tags:
+      - metatags
       responses:
-        default:
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
-          description: unexpected error
         "200":
           content:
             application/json:
               schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/Pet'
+                $ref: '#/components/schemas/Status'
               examples:
-                laurent_cats:
+                Response Example:
                   value:
-                  - id: 1
-                    name: Zaza
-                    tag: cat
-                  - id: 2
-                    name: Tigresse
-                    tag: cat
-                  - id: 3
-                    name: Maki
-                    tag: cat
-                  - id: 4
-                    name: Toufik
-                    tag: cat
-          description: pet response
-      operationId: findPets
-      description: |
-        Returns all pets from the system that the user has access to
+                    status: true
+          description: Return the status
+      operationId: canEnhance
+      description: return the status of the NLP engine
+  /enhance:
+    summary: ask the NLP engine if it can enhance the unstructured text
     post:
       requestBody:
-        description: Pet to add to the store
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/NewPet'
-            examples:
-              tigresse:
-                value:
-                  name: Tigresse
-                  tag: cat
+              $ref: '#/components/schemas/EnhanceRequest'
         required: true
+      tags:
+      - metatags
       responses:
-        default:
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
-          description: unexpected error
         "200":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Pet'
-              examples:
-                tigresse:
-                  value:
-                    id: 2
-                    name: Tigresse
-                    tag: cat
-          description: pet response
-      operationId: addPet
-      description: Creates a new pet in the store.  Duplicates are allowed
-  /pets/{id}:
-    get:
-      parameters:
-      - examples:
-          zaza:
-            value: 1
-        name: id
-        description: ID of pet to fetch
-        schema:
-          format: int64
-          type: integer
-        in: path
-        required: true
-      responses:
-        default:
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
-          description: unexpected error
-        "200":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Pet'
-              examples:
-                zaza:
-                  value:
-                    id: 1
-                    name: Zaza
-                    tag: cat
-          description: pet response
-      operationId: findPetById
-      description: |-
-        Returns a user based on a single ID, if the user does not have
-        access to the pet
-    delete:
-      parameters:
-      - name: id
-        description: ID of pet to delete
-        schema:
-          format: int64
-          type: integer
-        in: path
-        required: true
-      responses:
-        default:
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
-          description: unexpected error
-        "204":
-          description: pet deleted
-      operationId: deletePet
-      description: deletes a single pet based on the ID supplied
-    parameters:
-    - name: id
-      description: Pet identifier
-      schema:
-        type: integer
-      in: path
-      required: true
+                $ref: '#/components/schemas/EnhanceResponse'
+          description: the response of the NLP engine
+      operationId: enhance
+      description: send the request to enhance
 components:
   schemas:
-    Pet:
-      allOf:
-      - $ref: '#/components/schemas/NewPet'
-      - required:
-        - id
-        properties:
-          id:
-            format: int64
-            type: integer
-    NewPet:
+    EnhanceResponse:
+      title: Root Type for EnhanceResponse
+      description: the response of the NLP engine
+      required:
+      - metatags
+      type: object
+      properties:
+        metatags:
+          description: Array of metatags
+          type: array
+          items:
+            $ref: '#/components/schemas/MetaTag'
+          example:
+          - name: DC.ISO3166
+            value: IT
+    MetaTag:
+      title: Root Type for MetaTag
+      description: a metatag has a name and a value
       required:
       - name
+      - value
+      type: object
       properties:
         name:
+          description: the name of the metatag
           type: string
-        tag:
+          example: '"DC.ISO3166"'
+        value:
+          description: the value of the metatag
           type: string
-    Error:
+          example: '"IT"'
+    Status:
+      description: Status of the NLP engine
       required:
-      - code
-      - message
+      - status
+      type: object
       properties:
-        code:
-          format: int32
-          type: integer
-        message:
+        status:
+          description: "the status of the NLP engine, true if the engine is available\
+            \ false otherwise"
+          type: boolean
+          example: true
+    EnhanceRequest:
+      title: Root Type for EnhanceRequest
+      description: The request for the NLP engine to enhance text
+      required:
+      - metatags
+      - text
+      - url
+      type: object
+      properties:
+        metatags:
+          description: the list of metatags to be extracted from the text
+          type: array
+          items:
+            type: string
+        url:
+          description: the URL of the webpage containing the text
           type: string
+        text:
+          description: the text to be enhanced with metatags
+          type: string
+tags:
+- name: metatags
+  description: NLP engine function about dealing with metatags

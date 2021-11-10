@@ -30,7 +30,8 @@ paths:
                   value:
                     status: true
           description: Return the status
-      operationId: canEnhance
+      operationId: can_Enhance
+      x-openapi-router-controller: nlp_api.web.controllers.enhance_controller
       description: return the status of the NLP engine
   /enhance:
     summary: ask the NLP engine if it can enhance the unstructured text
@@ -51,6 +52,7 @@ paths:
                 $ref: '#/components/schemas/EnhanceResponse'
           description: the response of the NLP engine
       operationId: enhance
+      x-openapi-router-controller: nlp_api.web.controllers.enhance_controller
       description: send the request to enhance
 components:
   schemas:

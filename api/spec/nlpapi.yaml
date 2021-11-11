@@ -12,7 +12,7 @@ info:
     name: MIT License
     url: https://opensource.org/licenses/MIT
 servers:
-- url: http://35.181.155.22:5000/api
+- url: http://127.0.0.1:5000/api
 paths:
   /canEnhance:
     summary: check if the NLP engine is busy
@@ -30,8 +30,8 @@ paths:
                   value:
                     status: true
           description: Return the status
-      operationId: can_Enhance
-      x-openapi-router-controller: nlp_api.web.controllers.enhance_controller
+      operationId: can_enhance
+      x-openapi-router-controller: nlp_api.web.controllers.metatags_controller
       description: return the status of the NLP engine
   /enhance:
     summary: ask the NLP engine if it can enhance the unstructured text
@@ -52,7 +52,7 @@ paths:
                 $ref: '#/components/schemas/EnhanceResponse'
           description: the response of the NLP engine
       operationId: enhance
-      x-openapi-router-controller: nlp_api.web.controllers.enhance_controller
+      x-openapi-router-controller: nlp_api.web.controllers.metatags_controller
       description: send the request to enhance
 components:
   schemas:

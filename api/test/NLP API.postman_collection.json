@@ -1,0 +1,151 @@
+{
+	"info": {
+		"_postman_id": "dc658643-0b1c-4736-888b-5fd50b1187c7",
+		"name": "NLP API",
+		"description": "An API to expose the NLP Engine that enhance unstructured text\n\nContact Support:\n Name: Catalogue of Services Team\n Email: isa2@ec.europa.eu",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "can Enhance",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/canEnhance",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"canEnhance"
+					]
+				},
+				"description": "return the status of the NLP engine"
+			},
+			"response": [
+				{
+					"name": "Return the status",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/canEnhance",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"canEnhance"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n \"status\": true\n}"
+				}
+			]
+		},
+		{
+			"name": "enhance",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"metatags\": [\n        \"eu officia sit id ullamco\",\n        \"Ut incididunt\"\n    ],\n    \"text\": \"Excepteur cillum nulla\",\n    \"url\": \"eu anim exercitation deserunt ad\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/enhance",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"enhance"
+					]
+				},
+				"description": "send the request to enhance"
+			},
+			"response": [
+				{
+					"name": "the response of the NLP engine",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"metatags\": [\n        \"DC.ISO3166\",\n        \"non commodo\"\n    ],\n    \"text\": \"aute eiusmod\",\n    \"url\": \"in deserunt cillum\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/enhance",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"enhance"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n \"metatags\": [\n  {\n   \"name\": \"DC.ISO3166\",\n   \"value\": \"IT\"\n  }\n ]\n}"
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "http://127.0.0.1:5000/api"
+		}
+	]
+}

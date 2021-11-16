@@ -1,6 +1,7 @@
 {
   "api": {
-    "url": "http://server.com/api",
+    "baseurl": "https://35.181.155.22:5000/api",
+    "operations":["canEnhance","enhance"],
     "payload": "{\"metatags\":$METATAGS$,\"url\":$URL$,\"text\":$TEXT$}"
   },
   "page": {
@@ -12,12 +13,49 @@
       "name": "sdg-tag",
       "mandatory": true,
       "description": "The sdg-tag will contain the text sdg identifying the page as part of the Single Digital Gateway",
-      "expectedValue": "sdg"
+      "expectedValue": ["sdg"]
     },
     {
       "name": "DC.ISO3166",
       "mandatory": true,
-      "description": "It will contain the two characters ISO 3166-1 representation of names of countries"
+      "description": "It will contain the two characters ISO 3166-1 representation of names of countries",
+      "mapValue": [
+        {"name":"CAT","value":"ES"}
+      ],
+      "listOfValues": [
+        "AL",
+        "AT",
+        "BA",
+        "BE",
+        "BG",
+        "CH",
+        "CY",
+        "DE",
+        "DK",
+        "EE",
+        "ES",
+        "FI",
+        "FR",
+        "GB",
+        "GR",
+        "HR",
+        "HU",
+        "IE",
+        "IS",
+        "IT",
+        "LT",
+        "LV",
+        "MK",
+        "MT",
+        "NL",
+        "NO",
+        "PL",
+        "PT",
+        "RO",
+        "RS",
+        "SE",
+        "SI"
+      ]
     },
     {
       "name": "DC.location",

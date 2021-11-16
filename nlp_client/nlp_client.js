@@ -5,14 +5,29 @@ function getConfig() {
 }
 
 function insertMetaTag(name, value) {
+  console.log("inserting meta: name " + name + " value: " + value);
   $("head").append('<meta name="' + name + '" content="' + value + '">');
+}
+
+function get_tld(url) {
+  var hostname = new URL(url).hostname;
+  var tld = hostname.split(".").pop().toUpperCase();
+  return tld;
 }
 
 function getParameters(json) {
   //{
   // now you can use json
-  var includeOptionalTags = json.page.includeOptionalTags;
+
+  var elementToExtract = json.page.elementToExtract;
+  console.log("elementToExtract: " + elementToExtract);
+  var page_url = window.location.href;
+  console.log("page url: " + page_url);
+  var tld = get_tld(page_url);
+  console.log("tld: " + tld);
+
   var metatagsArray = [];
+  var includeOptionalTags = json.page.includeOptionalTags;
   $.each(json.metatags, function (key, val) {
     var name = val.name;
     if ($("meta[name='" + name + "']").length) {
@@ -26,6 +41,21 @@ function getParameters(json) {
         if (val.hasOwnProperty("expectedValue")) {
           console.log(val.expectedValue + " is expected");
           insertMetaTag(name, val.expectedValue);
+        } else if (val.hasOwnProperty("mapValue")) {
+          if (name === "DC.ISO3166") {
+            if (val.listOfValues.includes(tld)) {
+              insertMetaTag(name, tld);
+            } else {
+              var obj = val.mapValue.find((o) => o.name === tld);
+              console.log(obj);
+              if (obj !== undefined) {
+                tld = obj.value;
+                insertMetaTag(name, tld);
+              } else {
+                metatagsArray.push(name);
+              }
+            }
+          }
         } else {
           metatagsArray.push(name);
         }
@@ -48,18 +78,14 @@ function getParameters(json) {
   $.each(metatagsArray, function (i, val) {
     console.log(val + " is due");
   });
-  var elementToExtract = json.page.elementToExtract;
-  console.log("elementToExtract: " + elementToExtract);
-  var api_payload = json.api.payload;
-  console.log("api payload: " + api_payload);
-  var api_url = json.api.url;
-  console.log("api url: " + api_url);
-  callApi(metatagsArray, elementToExtract, api_payload, api_url);
+  callApi(page_url, elementToExtract, metatagsArray, json);
 }
 
-function callApi(metatagsArray, elementToExtract, api_payload, api_url) {
-  var page_url = window.location.href;
+function callApi(page_url, elementToExtract, metatagsArray, json) {
+  var api_payload = json.api.payload;
+  console.log("api payload: " + api_payload);
   var text = $(elementToExtract).text().trim().replace(/\s+/g, " ");
+  console.log("text: " + text);
   var request = api_payload
     .replace("$METATAGS$", JSON.stringify(metatagsArray))
     .replace("$URL$", JSON.stringify(page_url))
@@ -72,6 +98,33 @@ function callApi(metatagsArray, elementToExtract, api_payload, api_url) {
   console.log(JSON.stringify(sendJson));
   */
   console.log(request);
+  var base_url = json.api.baseurl;
+  console.log("base url: " + base_url);
+  var canenhance_url = base_url + "/" + json.api.operations[0];
+  console.log("canenhance_url: " + canenhance_url);
+  $.ajax({
+    url: canenhance_url,
+    method: "GET"
+  }).done(function (response1) {
+    console.log(response1);
+    if (response1.status) {
+      var enhance_url = base_url + "/" + json.api.operations[1];
+      console.log("enhance_url: " + enhance_url);
+      $.ajax({
+        url: enhance_url,
+        method: "POST",
+        data: request,
+        headers: {
+          "Content-Type": "application/json"
+        }
+      }).done(function (response2) {
+        console.log(response2);
+        response2.metatags.forEach((element) => {
+          insertMetaTag(element.name, element.value);
+        });
+      });
+    }
+  });
 }
 
 getConfig().done(function (json) {

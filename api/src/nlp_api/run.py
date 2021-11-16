@@ -4,6 +4,9 @@ import connexion
 
 from .web import encoder
 
+from flask_cors import CORS
+
+
 
 def create_app():
     abs_file_path = os.path.abspath(os.path.dirname(__file__))
@@ -11,6 +14,7 @@ def create_app():
     app = connexion.FlaskApp(
         __name__, specification_dir=openapi_path, options={"swagger_ui": True, "serve_spec": True}
     )
+    CORS(app.app)
     app.add_api("nlpapi.yaml", strict_validation=True)
     flask_app = app.app
     flask_app.json_encoder = encoder.JSONEncoder

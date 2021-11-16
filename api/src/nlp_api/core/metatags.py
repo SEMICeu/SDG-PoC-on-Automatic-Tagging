@@ -22,6 +22,7 @@ def get_status():
     mydb = config['mysql']['db']
     myuser = config['mysql']['username']
     mypass = config['mysql']['password']
+    connection = None
     try:
         connection = mysql.connector.connect(host=myhost,
                                          database=mydb,

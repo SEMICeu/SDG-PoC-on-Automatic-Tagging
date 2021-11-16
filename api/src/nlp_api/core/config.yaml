@@ -1,0 +1,7 @@
+mysql:
+  host: 127.0.0.1
+  db: nlp_poc
+  username: nlp_poc_user
+  password: nlp_poc_123!
+
+  

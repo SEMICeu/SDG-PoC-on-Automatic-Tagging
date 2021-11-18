@@ -4,6 +4,7 @@ from ..web.models import Status, EnhanceRequest, EnhanceResponse, MetaTag
 
 import yaml
 import mysql.connector
+import nlp_engine
 from mysql.connector import Error
 from pathlib import Path
 
@@ -47,13 +48,16 @@ def get_status():
             print("MySQL connection is closed")
 
 def enhance(request):
+    """
     metatags_in_request = request.metatags
     metatags_in_response = []
 
     for i in metatags_in_request:
         metatag = MetaTag(name=i,value="Test1")
         metatags_in_response.append(metatag)
-
+    """
+    metatags_in_response = []
+    metatags_in_response = nlp_engine.nlp_engine(request)
     response = EnhanceResponse(metatags=metatags_in_response)
     return response
 

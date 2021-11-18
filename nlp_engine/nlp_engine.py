@@ -2,7 +2,7 @@ import os
 
 os.chdir("..")
 
-from api.src.nlp_api.web.models import Status, EnhanceRequest, EnhanceResponse, MetaTag
+from api.src.nlp_api.web.models import MetaTag
 
 def nlp_engine(request):
 
@@ -12,5 +12,4 @@ def nlp_engine(request):
         metatag = MetaTag(name=i, value="Test1")
         metatags_in_response.append(metatag)
 
-    response = EnhanceResponse(metatags=metatags_in_response)
-    return response
+    return metatags_in_response

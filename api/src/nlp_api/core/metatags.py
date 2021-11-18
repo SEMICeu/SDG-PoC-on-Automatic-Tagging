@@ -6,6 +6,7 @@ from flask import jsonify
 import yaml
 import mysql.connector
 from nlp_engine.nlp_engine import execute
+import nlp_engine.nlp_engine as nlp; print(nlp)
 from mysql.connector import Error
 from pathlib import Path
 

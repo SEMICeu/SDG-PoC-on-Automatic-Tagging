@@ -5,7 +5,7 @@ from flask import jsonify
 
 import yaml
 import mysql.connector
-from nlp_engine.nlp_engine import execute
+#from nlp_engine.nlp_engine import execute
 import nlp_engine.nlp_engine as nlp; print(nlp)
 from mysql.connector import Error
 from pathlib import Path
@@ -59,7 +59,7 @@ def enhance(request):
     #    metatags_in_response.append(metatag)
     
     # metatags_in_response = []
-    metatags_in_response = execute(request)
+    metatags_in_response = nlp.execute(request)
     response = EnhanceResponse(metatags=metatags_in_response)
     return response
 

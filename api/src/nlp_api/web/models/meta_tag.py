@@ -94,3 +94,9 @@ class MetaTag(Model):
             raise ValueError("Invalid value for `value`, must not be `None`")  # noqa: E501
 
         self._value = value
+
+    def serialize(self):
+        return {"name": self.name,
+                "value": self.value}
+
+

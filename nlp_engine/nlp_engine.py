@@ -2,7 +2,6 @@ import os
 
 os.chdir("..")
 
-from flask import json, make_response, jsonify
 from api.src.nlp_api.web.models import MetaTag
 
 def execute(request):

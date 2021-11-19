@@ -1,4 +1,4 @@
 source .venv/bin/activate
 export PYTHONPATH=/home/deploy/
-FLASK_APP=/home/deploy/api/src/nlp_api/run.py FLASK_DEBUG=1 flask run --host=0.>
+FLASK_APP=/home/deploy/api/src/nlp_api/run.py FLASK_DEBUG=1 flask run --host=0.0.0.0 --cert adhoc
 deactivate

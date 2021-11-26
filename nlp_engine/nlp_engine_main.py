@@ -16,7 +16,7 @@ def execute(request):
         elif i =="DC.location":
             tag_value = "Tag of DC.location: still work in progress"
         elif i == "DC.service":
-            tag_value = dc_service_tag(request.page.elementToExtract)
+            tag_value = dc_service_tag(request.text)
         elif i == "policy-code":
             tag_value = "Tag of policy-code: still work in progress"
         elif i == "DC.Policy":

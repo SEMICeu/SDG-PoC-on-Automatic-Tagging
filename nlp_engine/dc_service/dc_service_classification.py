@@ -11,10 +11,10 @@ def dc_service_classification(vector):
     """
     dir_path = os.path.dirname(os.path.realpath(__file__)).replace("\\", "/")
 
-    path_to_information_classification_model = dir_path + "Classification_model/DC_Service_Information_classification_model.joblib"
+    path_to_information_classification_model = dir_path + "/Classification_model/DC_Service_Information_classification_model.joblib"
     information_classification_model = load(path_to_information_classification_model)
 
-    path_to_procedure_classification_model = dir_path + "Classification_model/DC_Service_Procedure_classification_model.joblib"
+    path_to_procedure_classification_model = dir_path + "/Classification_model/DC_Service_Procedure_classification_model.joblib"
     procedure_classification_model = load(path_to_procedure_classification_model)
 
     information_classification_result = information_classification_model.fit(vector)

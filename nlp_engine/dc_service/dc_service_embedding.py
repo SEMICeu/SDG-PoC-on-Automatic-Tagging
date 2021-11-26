@@ -12,7 +12,7 @@ def dc_service_embedding(text: str):
     """
     dir_path = os.path.dirname(os.path.realpath(__file__)).replace("\\", "/")
 
-    path_to_model = dir_path + "Language_model/Word2Vec.model"
+    path_to_model = dir_path + "/Language_model/Word2Vec.model"
     model = Word2Vec.load(path_to_model)
     w2v = dict(zip(model.wv.index2word, model.wv.vectors))
     dim = len(next(iter(w2v.values())))

@@ -17,8 +17,8 @@ def dc_service_classification(vector):
     path_to_procedure_classification_model = dir_path + "/Classification_model/DC_Service_Procedure_classification_model.joblib"
     procedure_classification_model = load(path_to_procedure_classification_model)
 
-    information_classification_result = information_classification_model.fit(vector)
-    procedure_classification_result = procedure_classification_model.fit(vector)
+    information_classification_result = information_classification_model.predict(vector)
+    procedure_classification_result = procedure_classification_model.predict(vector)
 
     if (information_classification_result == 1) and (procedure_classification_result == 0):
         tag = "Information"

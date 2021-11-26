@@ -10,17 +10,17 @@ def execute(request):
     metatags_in_response = []
     for i in metatags_in_request:
         if i == "sdg-tag":
-            tag_value = "Test1"
+            tag_value = "sdg"
         elif i == "DC.ISO3166":
-            tag_value = "Test1"
+            tag_value = "Tag of DC.ISO3166: still work in progress"
         elif i =="DC.location":
-            tag_value = "Test1"
+            tag_value = "Tag of DC.location: still work in progress"
         elif i == "DC.service":
             tag_value = dc_service_tag(request.page.elementToExtract)
         elif i == "policy-code":
-            tag_value = "Test1"
+            tag_value = "Tag of policy-code: still work in progress"
         elif i == "DC.Policy":
-            tag_value = "Test1"
+            tag_value = "Tag of DC.Policy: still work in progress"
         else:
             tag_value = "This tag does not exist"
         # https://github.com/zalando/connexion/issues/458

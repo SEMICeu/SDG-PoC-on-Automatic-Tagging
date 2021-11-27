@@ -100,19 +100,21 @@ function callApi(page_url, elementToExtract, metatagsArray, json) {
   console.log(request);
   var base_url = json.api.baseurl;
   console.log("base url: " + base_url);
-  var canenhance_url = base_url + "/" + json.api.operations[0];
+  var canenhance_url = base_url + "/" + json.api.operations[0].name;
   console.log("canenhance_url: " + canenhance_url);
   $.ajax({
     url: canenhance_url,
-    method: "GET"
+    method: json.api.operations[0].method,
+    timeout: json.api.operations[0].timeout
   }).done(function (response1) {
     console.log(response1);
     if (response1.status) {
-      var enhance_url = base_url + "/" + json.api.operations[1];
+      var enhance_url = base_url + "/" + json.api.operations[1.name];
       console.log("enhance_url: " + enhance_url);
       $.ajax({
         url: enhance_url,
-        method: "POST",
+        method: json.api.operations[1].method,
+        timeout: json.api.operations[1].timeout,
         data: request,
         headers: {
           "Content-Type": "application/json"
@@ -122,7 +124,17 @@ function callApi(page_url, elementToExtract, metatagsArray, json) {
         response2.metatags.forEach((element) => {
           insertMetaTag(element.name, element.value);
         });
+      })
+      .fail(function (jqXHR, textStatus) {
+        if (textStatus === "timeout") {
+          console.log("API timeout");
+        }
       });
+    }
+  })
+  .fail(function (jqXHR, textStatus) {
+    if (textStatus === "timeout") {
+      console.log("API timeout");
     }
   });
 }

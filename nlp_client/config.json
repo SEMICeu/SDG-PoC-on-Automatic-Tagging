@@ -1,8 +1,15 @@
 {
   "api": {
     "baseurl": "https://35.181.155.22:5000/api",
-    "operations":["canEnhance","enhance"],
-    "payload": "{\"metatags\":$METATAGS$,\"url\":$URL$,\"text\":$TEXT$}"
+    "operations": [
+      { "name": "canEnhance", "method": "GET", "timeout": 3000 },
+      {
+        "name": "enhance",
+        "method": "POST",
+        "timeout": 3000,
+        "payload": "{\"metatags\":$METATAGS$,\"url\":$URL$,\"text\":$TEXT$}"
+      }
+    ]
   },
   "page": {
     "elementToExtract": "body",

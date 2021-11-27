@@ -109,7 +109,7 @@ function callApi(page_url, elementToExtract, metatagsArray, json) {
   }).done(function (response1) {
     console.log(response1);
     if (response1.status) {
-      var enhance_url = base_url + "/" + json.api.operations[1.name];
+      var enhance_url = base_url + "/" + json.api.operations[1].name;
       console.log("enhance_url: " + enhance_url);
       $.ajax({
         url: enhance_url,

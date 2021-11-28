@@ -1,12 +1,21 @@
 import os
 import mysql.connector
+from pathlib import Path
+import yaml
 
 os.chdir("../..")
 
-from api.src.nlp_api.core.metatags import get_config
+def get_config_status():
+
+
+    my_path = Path(__file__).resolve()  # resolve to get rid of any symlinks
+    config_path = my_path.parent.parent.parent / 'api/src/nlp_api/core/config.yaml'
+    with config_path.open() as config_file:
+        config = yaml.load(config_file, Loader=yaml.FullLoader)
+    return config
 
 def set_status_busy():
-    config = get_config()
+    config = get_config_status()
     myhost = config['mysql']['host']
     mydb = config['mysql']['db']
     myuser = config['mysql']['username']
@@ -35,7 +44,7 @@ def set_status_busy():
             print("MySQL connection is closed")
 
 def set_status_available():
-    config = get_config()
+    config = get_config_status()
     myhost = config['mysql']['host']
     mydb = config['mysql']['db']
     myuser = config['mysql']['username']
@@ -62,3 +71,5 @@ def set_status_available():
             cursor.close()
             connection.close()
             print("MySQL connection is closed")
+
+set_status_busy()

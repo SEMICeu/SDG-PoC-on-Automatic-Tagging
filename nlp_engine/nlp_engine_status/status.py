@@ -26,14 +26,10 @@ def set_status_busy():
                                          user=myuser,
                                          password=mypass)
 
-    update_query = "UPDATE  status" \
-                   "SET status = 0;" \
-                   "SELECT status FROM status"
+    update_query = "UPDATE  status SET status = 0;"
 
     cursor = connection.cursor()
     cursor.execute(update_query)
-    record = cursor.fetchone()
-    print("result " + str(record[0]))
     # except mysql.connector.Error as error:
     #     print("Failed to update table in MySQL: {}".format(error))
     # finally:
@@ -55,14 +51,10 @@ def set_status_available():
                                          user=myuser,
                                          password=mypass)
 
-    update_query = "UPDATE  status" \
-                   "SET status = 1;" \
-                   "SELECT status FROM status"
+    update_query = "UPDATE  status SET status = 1;"
 
     cursor = connection.cursor()
     cursor.execute(update_query)
-    record = cursor.fetchone()
-    print("result " + str(record[0]))
     # except mysql.connector.Error as error:
     #     print("Failed to update table in MySQL: {}".format(error))
     # finally:

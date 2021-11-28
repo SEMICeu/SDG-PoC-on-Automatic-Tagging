@@ -71,5 +71,3 @@ def set_status_available():
             cursor.close()
             connection.close()
             print("MySQL connection is closed")
-
-set_status_busy()

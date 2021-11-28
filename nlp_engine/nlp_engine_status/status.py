@@ -30,6 +30,7 @@ def set_status_busy():
 
     cursor = connection.cursor()
     cursor.execute(update_query)
+    connection.commit()
     # except mysql.connector.Error as error:
     #     print("Failed to update table in MySQL: {}".format(error))
     # finally:
@@ -55,6 +56,7 @@ def set_status_available():
 
     cursor = connection.cursor()
     cursor.execute(update_query)
+    connection.commit()
     # except mysql.connector.Error as error:
     #     print("Failed to update table in MySQL: {}".format(error))
     # finally:

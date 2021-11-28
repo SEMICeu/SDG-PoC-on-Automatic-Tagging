@@ -1,5 +1,5 @@
 import os
-
+import time
 os.chdir("..")
 
 from api.src.nlp_api.web.models import MetaTag
@@ -9,7 +9,7 @@ def execute(request):
     print(request)
 
     set_status_busy()
-
+    time.sleep(5)
     metatags_in_request = request.metatags
     metatags_in_response = []
     for i in metatags_in_request:

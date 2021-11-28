@@ -7,7 +7,6 @@ os.chdir("../..")
 
 def get_config_status():
 
-
     my_path = Path(__file__).resolve()  # resolve to get rid of any symlinks
     config_path = my_path.parent.parent.parent / 'api/src/nlp_api/core/config.yaml'
     with config_path.open() as config_file:

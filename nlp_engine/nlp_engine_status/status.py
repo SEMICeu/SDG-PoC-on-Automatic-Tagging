@@ -20,24 +20,24 @@ def set_status_busy():
     myuser = config['mysql']['username']
     mypass = config['mysql']['password']
     connection = None
-    # try:
-    connection = mysql.connector.connect(host=myhost,
-                                         database=mydb,
-                                         user=myuser,
-                                         password=mypass)
+    try:
+        connection = mysql.connector.connect(host=myhost,
+                                             database=mydb,
+                                             user=myuser,
+                                             password=mypass)
 
-    update_query = "UPDATE  status SET status = 0;"
+        update_query = "UPDATE  status SET status = 0;"
 
-    cursor = connection.cursor()
-    cursor.execute(update_query)
-    connection.commit()
-    # except mysql.connector.Error as error:
-    #     print("Failed to update table in MySQL: {}".format(error))
-    # finally:
-    if connection.is_connected():
-        cursor.close()
-        connection.close()
-        print("MySQL connection is closed")
+        cursor = connection.cursor()
+        cursor.execute(update_query)
+        connection.commit()
+    except mysql.connector.Error as error:
+        print("Failed to update table in MySQL: {}".format(error))
+    finally:
+        if connection.is_connected():
+            cursor.close()
+            connection.close()
+            print("MySQL connection is closed")
 
 def set_status_available():
     config = get_config_status()
@@ -46,21 +46,21 @@ def set_status_available():
     myuser = config['mysql']['username']
     mypass = config['mysql']['password']
     connection = None
-    # try:
-    connection = mysql.connector.connect(host=myhost,
-                                         database=mydb,
-                                         user=myuser,
-                                         password=mypass)
+    try:
+        connection = mysql.connector.connect(host=myhost,
+                                             database=mydb,
+                                             user=myuser,
+                                             password=mypass)
 
-    update_query = "UPDATE  status SET status = 1;"
+        update_query = "UPDATE  status SET status = 1;"
 
-    cursor = connection.cursor()
-    cursor.execute(update_query)
-    connection.commit()
-    # except mysql.connector.Error as error:
-    #     print("Failed to update table in MySQL: {}".format(error))
-    # finally:
-    if connection.is_connected():
-        cursor.close()
-        connection.close()
-        print("MySQL connection is closed")
+        cursor = connection.cursor()
+        cursor.execute(update_query)
+        connection.commit()
+    except mysql.connector.Error as error:
+        print("Failed to update table in MySQL: {}".format(error))
+    finally:
+        if connection.is_connected():
+            cursor.close()
+            connection.close()
+            print("MySQL connection is closed")

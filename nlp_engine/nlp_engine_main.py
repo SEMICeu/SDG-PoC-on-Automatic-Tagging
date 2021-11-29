@@ -6,10 +6,18 @@ from api.src.nlp_api.web.models import MetaTag
 from nlp_engine.dc_service.dc_service_tag import dc_service_tag
 from nlp_engine.nlp_engine_status.status import set_status_busy, set_status_available
 def execute(request):
+    """
+
+    :param request:
+    :return: Metatag
+
+    This function takes a request of Metatags (containing the Metatags, the text of the webpage and the URL).
+    For each meta tag, this function calls another function that produce the tag.
+    While producing the meta tags, this function also set the status of the NLP Engine as busy.
+    """
     print(request)
 
     set_status_busy()
-    time.sleep(5)
     metatags_in_request = request.metatags
     metatags_in_response = []
     for i in metatags_in_request:

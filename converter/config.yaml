@@ -1,0 +1,15 @@
+file:
+  input: cpsv-pilot_sweden.xlsx
+  output: data/html_data.json
+browser:
+  user_agent: Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2228.0 Safari/537.3
+  x_mashape_key: XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+filter:
+  language: en
+  country: Greece
+url_list:
+  - https://www.gov.gr
+  - https://www.lakemedelsverket.se
+selectors:
+  - p.sdg-content
+  - div.area-page__narrow-wrapper

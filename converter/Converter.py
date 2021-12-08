@@ -1,38 +1,69 @@
 
 # define the converter function
+import pandas as pd
+import ssl
+import os
+
+from urllib.request import Request, urlopen
+import urllib3
+import json
+from bs4 import BeautifulSoup
+
+from urllib.parse import urlparse
+import yaml
+from pathlib import Path
+from datetime import datetime
+from selenium import webdriver
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.common.by import By
+
+def get_config():
+    my_path = Path(__file__).resolve()  # resolve to get rid of any symlinks
+    config_path = my_path.parent / 'config.yaml'
+    with config_path.open() as config_file:
+        config = yaml.load(config_file, Loader=yaml.FullLoader)
+    return config
+
+def search(a_list, value):
+    try:
+        return a_list.index(value)
+    except ValueError:
+        return None
+
 def converter():
-
-    import pandas as pd
-    import ssl
-    import os
-
+    start_time = datetime.now()
     # read excel files with all the urls
     dir_path = os.path.dirname(os.path.realpath(__file__)).replace("\\", "/")
-
-    html_list_excel_file = dir_path + '/cpsv-pilot.xlsx'
+    config = get_config()
+    html_list_excel_file = dir_path + '/' + config['file']['input']
 
     html_list_pandas_file = pd.read_excel(html_list_excel_file)
 
     # set up the scrapping agent
-    user_agent = 'Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2228.0 Safari/537.3'
-    X_Mashape_Key = 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX'
+    user_agent = config['browser']['user_agent']
+    X_Mashape_Key = config['browser']['x_mashape_key']
     headers = {'User-Agent': user_agent,
                'X-Mashape-Key': X_Mashape_Key}
     gcontext = ssl.SSLContext()
 
     # filter on English HTML pages
-    html_list_pandas_file_english = html_list_pandas_file[(html_list_pandas_file.LANGUAGE == 'en')]
+    html_list_pandas_file_english = html_list_pandas_file[(html_list_pandas_file.LANGUAGE == config['filter']['language'])]
+    print("rows:" + str(len(html_list_pandas_file_english)))
+    # browser = webdriver.Chrome()
 
+    # html_list_pandas_file_english = html_list_pandas_file_english[(html_list_pandas_file.COUNTRY == config['filter']['country'])]
     # print(html_list_pandas_file_english)
-
-    from urllib.request import Request, urlopen
-    import urllib3
-    import json
-    from bs4 import BeautifulSoup
 
     # scrap each english url of the excel file
     html_list_json_file = {}
     html_list_json_file['html_list'] = []
+    list_url = config['url_list']
+
+    options = webdriver.ChromeOptions()
+    options.add_experimental_option('excludeSwitches', ['enable-logging'])
+    browser = webdriver.Chrome(options=options)
+
     for index, row in html_list_pandas_file_english.iterrows():
         title = row['TITLE']
         url = row['URL']
@@ -40,14 +71,29 @@ def converter():
         classification_information = row['CLASSIFICATION_INFORMATION']
         metadata_type_string = row['METADATA_TYPE_STRING']
         country = row['COUNTRY']
-        print(url)
+        print("url: " + url)
+        parsed_uri = urlparse(url)
+        parent_uri = '{uri.scheme}://{uri.netloc}'.format(uri=parsed_uri)
+        # print("Parent url: " + parent_uri)
         try:
-            request = Request(url=url, headers=headers)
-            response = urlopen(request, context=gcontext)
-            webContent = response.read()
+            found = search(list_url, parent_uri)
+            if found is not None:
+                print("found: " + parent_uri)
+
+                browser.get(url)
+                # print("selector:" + config['selectors'][found])
+                element = WebDriverWait(browser, 10).until(
+                    EC.visibility_of_element_located((By.CSS_SELECTOR, config['selectors'][found]))
+                )
+                webContent = browser.page_source
+                
+            else:
+                request = Request(url=url, headers=headers)
+                response = urlopen(request, context=gcontext)
+                webContent = response.read()
+            print("index: " + str(index))
             soup = BeautifulSoup(webContent, 'html.parser')
             html = soup.prettify()
-
             # filter the pages according to the tags present in the pages
             if "sdg-tag" in html or "DC.ISO3166" in html or "DC.Location" in html or "DC.Service" in html or "policy-code" in html or "DC.Policy" in html:
 
@@ -104,12 +150,14 @@ def converter():
                     'policy_code': policy_code,
                     'Policy': Policy
                 })
-        except:
-            print(ValueError)
+        except ValueError as e:
+            print(e)
 
-
-    with open('data/html_data.json', 'w') as outfile:
+    browser.quit()
+    with open(config['file']['output'], 'w') as outfile:
         json.dump(html_list_json_file, outfile)
 
+    end_time = datetime.now()
+    print('Duration: {}'.format(end_time - start_time))
 # run the converter function
 converter()

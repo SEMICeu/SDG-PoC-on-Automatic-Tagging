@@ -111,6 +111,16 @@ function callApi(page_url, elementToExtract, metatagsArray, json) {
     if (response1.status) {
       var enhance_url = base_url + "/" + json.api.operations[1].name;
       console.log("enhance_url: " + enhance_url);
+
+      var api_payload = json.api.operations[1].payload;
+      console.log("api payload: " + api_payload);
+      var text = $(elementToExtract).text().trim().replace(/\s+/g, " ");
+      console.log("text: " + text);
+      var request = api_payload
+        .replace("$METATAGS$", JSON.stringify(metatagsArray))
+        .replace("$URL$", JSON.stringify(page_url))
+        .replace("$TEXT$", JSON.stringify(text));
+      
       $.ajax({
         url: enhance_url,
         method: json.api.operations[1].method,
@@ -142,34 +152,4 @@ function callApi(page_url, elementToExtract, metatagsArray, json) {
 getConfig().done(function (json) {
   getParameters(json);
 });
-/* script.js
-var yourObject = {
-  test:'test 1',
-  testData: [ 
-    {testName: 'do',testId:''}
-   ],
-   testRcd:'value'   
-};
-var myString = 'newData='+JSON.stringify(yourObject);  //converts json to string and prepends the POST variable name
-$.ajax({
-   type: "POST",
-   url: "buildJson.php", //the name and location of your php file
-   data: myString,      //add the converted json string to a document.
-   success: function() {alert('sucess');} //just to make sure it got to this point.
-});
-return false; 
 
-buildJson.php
-
-<?php
-    $file = "data.json";  //name and location of json file. if the file doesn't exist, it   will be created with this name
-
-    $fh = fopen($file, 'a');  //'a' will append the data to the end of the file. there are other arguemnts for fopen that might help you a little more. google 'fopen php'.
-
-    $new_data = $_POST["newData"]; //put POST data from ajax request in a variable
-
-    fwrite($fh, $new_data);  //write the data with fwrite
-
-    fclose($fh);  //close the dile
-?>
-*/

@@ -115,7 +115,7 @@ function callApi(page_url, elementToExtract, metatagsArray, json) {
           "Content-Type": "application/json"
         }
       }).done(function (response2) {
-        console.log("[NLP-POC] " + JSON.stringify(response2));
+        console.log("[NLP-POC] response: " + JSON.stringify(response2));
         response2.metatags.forEach((element) => {
           if(element.value !=  json.api.operations[1].notimplemented)
             insertMetaTag(element.name, element.value);

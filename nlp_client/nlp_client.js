@@ -47,7 +47,7 @@ function getParameters(json) {
               insertMetaTag(name, tld);
             } else {
               var obj = val.mapValue.find((o) => o.name === tld);
-              console.log("[NLP-POC] " + obj);
+              console.log("[NLP-POC] " + JSON.stringify(obj));
               if (obj !== undefined) {
                 tld = obj.value;
                 insertMetaTag(name, tld);
@@ -92,7 +92,7 @@ function callApi(page_url, elementToExtract, metatagsArray, json) {
     method: json.api.operations[0].method,
     timeout: json.api.operations[0].timeout
   }).done(function (response1) {
-    console.log("[NLP-POC] response: " + response1);
+    console.log("[NLP-POC] response: " + JSON.stringify(response1));
     if (response1.status) {
       var enhance_url = base_url + "/" + json.api.operations[1].name;
       console.log("[NLP-POC] enhance_url: " + enhance_url);
@@ -115,7 +115,7 @@ function callApi(page_url, elementToExtract, metatagsArray, json) {
           "Content-Type": "application/json"
         }
       }).done(function (response2) {
-        console.log("[NLP-POC] " + response2);
+        console.log("[NLP-POC] " + JSON.stringify(response2));
         response2.metatags.forEach((element) => {
           if(element.value !=  json.api.operations[1].notimplemented)
             insertMetaTag(element.name, element.value);

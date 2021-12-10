@@ -98,7 +98,7 @@ function callApi(page_url, metatagsArray, json) {
       var elementToExtract = json.page.elementToExtract;
       var content = $(elementToExtract).clone();
       content.find('script').remove();
-      content.find('iframe').remove();
+      content.find('noscript').remove();
       var text = content.text().trim().replace(/\s+/g, " ");
 
       var api_payload = json.api.operations[1].payload;

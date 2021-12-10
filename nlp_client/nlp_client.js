@@ -19,12 +19,11 @@ function getParameters(json) {
   //{
   // now you can use json
 
-  var elementToExtract = json.page.elementToExtract;
-  console.log("[NLP-POC] elementToExtract: " + elementToExtract);
+  
   var page_url = window.location.href;
   console.log("[NLP-POC] page url: " + page_url);
   var tld = get_tld(page_url);
-  console.log("[NLP-POC] tld: " + tld);
+  console.log("[NLP-POC] top level domain: " + tld);
 
   var metatagsArray = [];
   var includeOptionalTags = json.page.includeOptionalTags;
@@ -47,7 +46,6 @@ function getParameters(json) {
               insertMetaTag(name, tld);
             } else {
               var obj = val.mapValue.find((o) => o.name === tld);
-              console.log("[NLP-POC] " + JSON.stringify(obj));
               if (obj !== undefined) {
                 tld = obj.value;
                 insertMetaTag(name, tld);
@@ -75,18 +73,17 @@ function getParameters(json) {
     }
   });
 
-  $.each(metatagsArray, function (i, val) {
-    console.log("[NLP-POC] " + val + " is due");
-  });
-  callApi(page_url, elementToExtract, metatagsArray, json);
+  console.log("[NLP-POC] These metatags are then needed: " + JSON.stringify(metatagsArray));
+  callApi(page_url, metatagsArray, json);
 }
 
-function callApi(page_url, elementToExtract, metatagsArray, json) {
+function callApi(page_url, metatagsArray, json) {
   
   var base_url = json.api.baseurl;
-  console.log("[NLP-POC] base_url: " + base_url);
+
   var canenhance_url = base_url + "/" + json.api.operations[0].name;
-  console.log("[NLP-POC] canenhance_url: " + canenhance_url);
+  console.log("[NLP-POC] contacting API: " + canenhance_url);
+
   $.ajax({
     url: canenhance_url,
     method: json.api.operations[0].method,
@@ -94,18 +91,20 @@ function callApi(page_url, elementToExtract, metatagsArray, json) {
   }).done(function (response1) {
     console.log("[NLP-POC] response: " + JSON.stringify(response1));
     if (response1.status) {
+      
       var enhance_url = base_url + "/" + json.api.operations[1].name;
-      console.log("[NLP-POC] enhance_url: " + enhance_url);
+      console.log("[NLP-POC] Contacting API: " + enhance_url);
+
+      var elementToExtract = json.page.elementToExtract;
+      var text = $(elementToExtract).text().trim().replace(/\s+/g, " ");
 
       var api_payload = json.api.operations[1].payload;
-      console.log("[NLP-POC] api payload: " + api_payload);
-      var text = $(elementToExtract).text().trim().replace(/\s+/g, " ");
-      console.log("[NLP-POC] text: " + text);
       var request = api_payload
         .replace("$METATAGS$", JSON.stringify(metatagsArray))
         .replace("$URL$", JSON.stringify(page_url))
         .replace("$TEXT$", JSON.stringify(text));
       console.log("[NLP-POC] request: " + request);
+
       $.ajax({
         url: enhance_url,
         method: json.api.operations[1].method,

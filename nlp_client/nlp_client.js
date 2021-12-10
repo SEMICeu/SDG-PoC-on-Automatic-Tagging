@@ -82,7 +82,7 @@ function getParameters(json) {
 }
 
 function callApi(page_url, elementToExtract, metatagsArray, json) {
-  console.log(request);
+  
   var base_url = json.api.baseurl;
   console.log("base url: " + base_url);
   var canenhance_url = base_url + "/" + json.api.operations[0].name;
@@ -105,7 +105,7 @@ function callApi(page_url, elementToExtract, metatagsArray, json) {
         .replace("$METATAGS$", JSON.stringify(metatagsArray))
         .replace("$URL$", JSON.stringify(page_url))
         .replace("$TEXT$", JSON.stringify(text));
-      
+      console.log(request);
       $.ajax({
         url: enhance_url,
         method: json.api.operations[1].method,

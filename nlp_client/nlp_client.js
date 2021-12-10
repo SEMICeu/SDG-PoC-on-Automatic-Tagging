@@ -5,7 +5,7 @@ function getConfig() {
 }
 
 function insertMetaTag(name, value, notimplemented) {
-  console.log("[NLP-POC] inserting meta: name " + name + " value: " + value);
+  console.log("[NLP-POC] inserting metatag " + name + " with value: " + value);
   $("head").append('<meta name="' + name + '" content="' + value + '">');
 }
 

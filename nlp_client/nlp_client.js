@@ -18,7 +18,6 @@ function get_topleveldomain(url) {
 function getParameters(json) {
 
   var page_url = window.location.href;
-  console.log("[NLP-POC] page url: " + page_url);
   var tld = get_topleveldomain(page_url);
 
   var metatagsArray = [];

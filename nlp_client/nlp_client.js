@@ -82,21 +82,6 @@ function getParameters(json) {
 }
 
 function callApi(page_url, elementToExtract, metatagsArray, json) {
-  var api_payload = json.api.payload;
-  console.log("api payload: " + api_payload);
-  var text = $(elementToExtract).text().trim().replace(/\s+/g, " ");
-  console.log("text: " + text);
-  var request = api_payload
-    .replace("$METATAGS$", JSON.stringify(metatagsArray))
-    .replace("$URL$", JSON.stringify(page_url))
-    .replace("$TEXT$", JSON.stringify(text));
-  /*var sendJson = {
-    metatags: metatagsArray,
-    url: page_url,
-    text: text
-  };
-  console.log(JSON.stringify(sendJson));
-  */
   console.log(request);
   var base_url = json.api.baseurl;
   console.log("base url: " + base_url);

@@ -5,25 +5,21 @@ function getConfig() {
 }
 
 function insertMetaTag(name, value, notimplemented) {
-    console.log("[NLP-POC] inserting meta: name " + name + " value: " + value);
-    $("head").append('<meta name="' + name + '" content="' + value + '">');
+  console.log("[NLP-POC] inserting meta: name " + name + " value: " + value);
+  $("head").append('<meta name="' + name + '" content="' + value + '">');
 }
 
-function get_tld(url) {
+function get_topleveldomain(url) {
   var hostname = new URL(url).hostname;
   var tld = hostname.split(".").pop().toUpperCase();
   return tld;
 }
 
 function getParameters(json) {
-  //{
-  // now you can use json
 
-  
   var page_url = window.location.href;
   console.log("[NLP-POC] page url: " + page_url);
-  var tld = get_tld(page_url);
-  console.log("[NLP-POC] top level domain: " + tld);
+  var tld = get_topleveldomain(page_url);
 
   var metatagsArray = [];
   var includeOptionalTags = json.page.includeOptionalTags;
@@ -82,14 +78,14 @@ function callApi(page_url, metatagsArray, json) {
   var base_url = json.api.baseurl;
 
   var canenhance_url = base_url + "/" + json.api.operations[0].name;
-  console.log("[NLP-POC] contacting API: " + canenhance_url);
+  console.log("[NLP-POC] Contacting API: " + canenhance_url);
 
   $.ajax({
     url: canenhance_url,
     method: json.api.operations[0].method,
     timeout: json.api.operations[0].timeout
   }).done(function (response1) {
-    console.log("[NLP-POC] response: " + JSON.stringify(response1));
+    console.log("[NLP-POC] Response: " + JSON.stringify(response1));
     if (response1.status) {
       
       var enhance_url = base_url + "/" + json.api.operations[1].name;
@@ -117,7 +113,7 @@ function callApi(page_url, metatagsArray, json) {
           "Content-Type": "application/json"
         }
       }).done(function (response2) {
-        console.log("[NLP-POC] response: " + JSON.stringify(response2));
+        console.log("[NLP-POC] Response: " + JSON.stringify(response2));
         response2.metatags.forEach((element) => {
           if(element.value !=  json.api.operations[1].notimplemented)
             insertMetaTag(element.name, element.value);

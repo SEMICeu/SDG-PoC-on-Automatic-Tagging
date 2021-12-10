@@ -96,7 +96,10 @@ function callApi(page_url, metatagsArray, json) {
       console.log("[NLP-POC] Contacting API: " + enhance_url);
 
       var elementToExtract = json.page.elementToExtract;
-      var text = $(elementToExtract).text().trim().replace(/\s+/g, " ");
+      var content = $(elementToExtract).clone();
+      content.find('script').remove();
+      content.find('iframe').remove();
+      var text = content.text().trim().replace(/\s+/g, " ");
 
       var api_payload = json.api.operations[1].payload;
       var request = api_payload

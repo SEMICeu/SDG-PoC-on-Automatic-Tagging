@@ -12,7 +12,7 @@ def policy_code_classification(vector):
     """
     dir_path = os.path.dirname(os.path.realpath(__file__)).replace("\\", "/")
 
-    path_to_policy_code_classification_model = dir_path + "/Classification_model/policy_code_classification_model.joblib"
+    path_to_policy_code_classification_model = dir_path + "/classification_model/policy_code_classification_model.joblib"
     policy_code_classification_model = load(path_to_policy_code_classification_model)
 
     information_classification_result = policy_code_classification_model.predict(vector).toarray()

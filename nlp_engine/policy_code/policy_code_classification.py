@@ -20,7 +20,7 @@ def policy_code_classification(vector):
 
     dir_path = Path(os.path.dirname(os.path.realpath(__file__)).replace("\\", "/"))
 
-    path_to_policy_code_taxonomy = str(dir_path.parent.parent.absolute()) + "/doc/policy_code_last_layer.csv"
+    path_to_policy_code_taxonomy = str(dir_path.parent.absolute()) + "/doc/policy_code_last_layer.csv"
 
     policy_code_last_layer = pd.read_csv(path_to_policy_code_taxonomy)
 

@@ -13,10 +13,17 @@ from urllib.parse import urlparse
 import yaml
 from pathlib import Path
 from datetime import datetime
+import time
 from selenium import webdriver
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By
+from selenium.common.exceptions import TimeoutException
+import urllib.request
+from requests.utils import requote_uri
+import re
+from http.client import IncompleteRead
+import socket
 
 def get_config():
     my_path = Path(__file__).resolve()  # resolve to get rid of any symlinks
@@ -31,6 +38,17 @@ def search(a_list, value):
     except ValueError:
         return None
 
+def remove_tags(soup):
+  
+    # parse html content
+  
+    for data in soup(['style', 'script']):
+        # Remove tags
+        data.decompose()
+  
+    # return data by retrieving the tag content
+    return ' '.join(soup.stripped_strings)
+
 def converter():
     start_time = datetime.now()
     # read excel files with all the urls
@@ -41,10 +59,9 @@ def converter():
     html_list_pandas_file = pd.read_excel(html_list_excel_file)
 
     # set up the scrapping agent
-    user_agent = config['browser']['user_agent']
-    X_Mashape_Key = config['browser']['x_mashape_key']
-    headers = {'User-Agent': user_agent,
-               'X-Mashape-Key': X_Mashape_Key}
+    headers = {'User-Agent': config['request']['header']['user_agent'],
+               'X-Mashape-Key': config['request']['header']['x_mashape_key'],
+               'Connection' : config['request']['header']['connection']}
     gcontext = ssl.SSLContext()
 
     # filter on English HTML pages
@@ -58,7 +75,7 @@ def converter():
     # scrap each english url of the excel file
     html_list_json_file = {}
     html_list_json_file['html_list'] = []
-    list_url = config['url_list']
+    list_url = config['selenium']['url_list']
 
     options = webdriver.ChromeOptions()
     options.add_experimental_option('excludeSwitches', ['enable-logging'])
@@ -66,7 +83,7 @@ def converter():
 
     for index, row in html_list_pandas_file_english.iterrows():
         title = row['TITLE']
-        url = row['URL']
+        url = requote_uri(row['URL'])
         language = row['LANGUAGE']
         classification_information = row['CLASSIFICATION_INFORMATION']
         metadata_type_string = row['METADATA_TYPE_STRING']
@@ -82,16 +99,19 @@ def converter():
 
                 browser.get(url)
                 # print("selector:" + config['selectors'][found])
-                element = WebDriverWait(browser, 10).until(
-                    EC.visibility_of_element_located((By.CSS_SELECTOR, config['selectors'][found]))
-                )
+                try:
+                    element = WebDriverWait(browser, config['selenium']['timeout']).until(
+                        EC.visibility_of_element_located((By.CSS_SELECTOR, config['selenium']['selectors'][found]))
+                    )
+                except TimeoutException:
+                    print("Timed out waiting for page to load")
                 webContent = browser.page_source
                 
             else:
                 request = Request(url=url, headers=headers)
-                response = urlopen(request, context=gcontext)
+                response = urlopen(request, context=gcontext, timeout=config['request']['timeout'])
                 webContent = response.read()
-            print("index: " + str(index))
+
             soup = BeautifulSoup(webContent, 'html.parser')
             html = soup.prettify()
             # filter the pages according to the tags present in the pages
@@ -135,6 +155,10 @@ def converter():
                 else:
                     Policy = ""
 
+                title = title.replace('\t', '')
+                text = soup.get_text()
+                text= text.replace('\n', ' ').replace('\t', ' ')
+                text = re.sub('\s{2,}', ' ', text)
                 html_list_json_file['html_list'].append({
                     'title': title,
                     'url': url,
@@ -142,7 +166,7 @@ def converter():
                     'classification_information': classification_information,
                     'metadata_type_string': metadata_type_string,
                     'country': country,
-                    'html': str(html),
+                    'html': text,
                     'sdg_tag': sdg_tag,
                     'ISO3166': ISO3166,
                     'Location': Location,
@@ -150,8 +174,31 @@ def converter():
                     'policy_code': policy_code,
                     'Policy': Policy
                 })
+            pause_exception_list = config['pause']['exception']['url_list']
+            found = search(pause_exception_list, parent_uri)
+            if found is not None:
+                print("increasing pause for " + parent_uri)
+                time.sleep(config['pause']['exception']['time'])
+            else:
+                print("pause for " + parent_uri)
+                time.sleep(config['pause']['time'])
+
+        except urllib.request.HTTPError as e:
+            if e.code==404:
+                print(f"{url} is not found")
+                continue
+        except urllib.error.URLError as e:
+            print(f"{url} has error" + str(e))
+            continue
+        except socket.timeout as e:
+            print(f"{url} has socket timeout" + str(e))
+            continue
+        except IncompleteRead as e:
+            print(f"{url} has incomplete read" + str(e))
+            continue
         except ValueError as e:
-            print(e)
+            print("Value error" + str(e))
+            continue
 
     browser.quit()
     with open(config['file']['output'], 'w') as outfile:

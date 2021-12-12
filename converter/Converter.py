@@ -115,14 +115,14 @@ def converter():
             soup = BeautifulSoup(webContent, 'html.parser')
             html = soup.prettify()
             # filter the pages according to the tags present in the pages
-            if "sdg-tag" in html or "DC.ISO3166" in html or "DC.Location" in html or "DC.Service" in html or "policy-code" in html or "DC.Policy" in html:
+            if "sdg-tag" in html or "DC.ISO3166" in html or "DC.Location" in html or "DC.Service" in html or "dc_policy-code" in html or "DC.Policy" in html:
 
                 # extract the tags present in the pages (this part can be improved since we don't gather all tags, some of them are not in the format '< meta name: "DC.Example" content: "Example">')
                 sdg_tag_header = soup.find(attrs={"name": "sdg-tag"})
                 ISO3166_header = soup.find(attrs={"name": "DC.ISO3166"})
                 Location_header = soup.find(attrs={"name": "DC.Location"})
                 Service_header = soup.find(attrs={"name": "DC.Service"})
-                policy_code_header = soup.find(attrs={"name": "policy-code"})
+                policy_code_header = soup.find(attrs={"name": "dc_policy-code"})
                 Policy_header = soup.find(attrs={"name": "DC.Policy"})
 
                 if sdg_tag_header is not None:

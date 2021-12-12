@@ -11,7 +11,7 @@ def policy_code_classification(vector):
     :param vector: Array
     :return:
 
-    This function gives the policy code tag from the embedding
+    This function gives the dc_policy code tag from the embedding
     """
     dir_path = os.path.dirname(os.path.realpath(__file__)).replace("\\", "/")
 

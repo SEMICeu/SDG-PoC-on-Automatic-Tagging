@@ -9,7 +9,7 @@ def policy_code_tag(body: str):
     :param body: str
     :return: str
 
-    This function returns the tag of policy code from the body of a webpage.
+    This function returns the tag of dc_policy code from the body of a webpage.
     The different tags can be found in doc/policy_codes.csv
     """
 

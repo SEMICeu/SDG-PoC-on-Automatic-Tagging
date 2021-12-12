@@ -2,6 +2,7 @@ from joblib import load
 import os
 import pandas as pd
 from skmultilearn.adapt import MLkNN
+from pathlib import Path
 def policy_code_classification(vector):
     """
 
@@ -17,9 +18,9 @@ def policy_code_classification(vector):
 
     information_classification_result = policy_code_classification_model.predict(vector).toarray()
 
-    dir_path = os.path.dirname(os.path.realpath(__file__).parent.parent).replace("\\", "/")
+    dir_path = Path(os.path.dirname(os.path.realpath(__file__)).replace("\\", "/"))
 
-    path_to_policy_code_taxonomy = dir_path + "/doc/policy_code_last_layer.csv"
+    path_to_policy_code_taxonomy = str(dir_path.parent.parent.absolute()) + "/doc/policy_code_last_layer.csv"
 
     policy_code_last_layer = pd.read_csv(path_to_policy_code_taxonomy)
 

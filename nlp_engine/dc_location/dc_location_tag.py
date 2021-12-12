@@ -1,5 +1,4 @@
 
-import pycountry
 
 from nlp_engine.dc_iso3166.dc_iso3166_tag import dc_iso3166_tag
 from pathlib import Path

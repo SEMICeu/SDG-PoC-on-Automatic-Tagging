@@ -15,7 +15,7 @@ def embedding(text: str):
 
     path_to_model = str(dir_path.parent.absolute()) + "/language_model/Word2Vec.model"
     model = Word2Vec.load(path_to_model)
-    w2v = dict(zip(model.wv.index2word, model.wv.vectors))
+    w2v = dict(zip(model.wv.index_to_key, model.wv.vectors))
     dim = len(next(iter(w2v.values())))
     embedding = np.array([
             np.mean([w2v[w] for w in text if w in w2v] or

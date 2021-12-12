@@ -23,17 +23,18 @@ def policy_code_classification(vector):
 
     information_classification_result = policy_code_classification_model.predict(vector).toarray()
 
+    information_classification_result = [i.item() for i in information_classification_result[0]]
+
     dir_path = Path(os.path.dirname(os.path.realpath(__file__)))
 
     path_to_policy_code_taxonomy = str(dir_path.parent.absolute()).replace("\\","/") + "/doc/policy_codes_last_layer.csv"
 
-    policy_code_last_layer = pd.read_csv(filepath_or_buffer=path_to_policy_code_taxonomy,  header=0, sep=";")
+    policy_code_last_layer = pd.read_csv(filepath_or_buffer=path_to_policy_code_taxonomy,  header=0, sep=",")
 
     tag = []
 
     for i in range(len(information_classification_result)):
-        if information_classification_result[0][i]==1:
+        if information_classification_result[i]==1:
             tag.append(policy_code_last_layer.loc[i, "Policy code"])
 
-    # return ";".join([str(i) for i in information_classification_result[0]])
     return ";".join(tag)

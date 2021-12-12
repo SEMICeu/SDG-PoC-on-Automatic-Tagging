@@ -2,8 +2,8 @@
 # from dc_service_embedding import dc_service_embedding
 # from dc_service_classification import dc_service_classification
 from nlp_engine.dc_service.dc_service_classification import dc_service_classification
-from nlp_engine.dc_service.dc_service_embedding import dc_service_embedding
-from nlp_engine.dc_service.dc_service_preprocessing import dc_service_preprocessing
+from nlp_engine.utils.embedding import embedding
+from nlp_engine.utils.preprocessing import preprocessing
 
 
 def dc_service_tag(body: str):
@@ -16,9 +16,9 @@ def dc_service_tag(body: str):
     This tag can be  'Procedure', 'Information' or both
     """
 
-    preprocessed_body = dc_service_preprocessing(body)
+    preprocessed_body = preprocessing(body)
 
-    embedded_body = dc_service_embedding(preprocessed_body)
+    embedded_body = embedding(preprocessed_body)
 
     tag = dc_service_classification(embedded_body)
 

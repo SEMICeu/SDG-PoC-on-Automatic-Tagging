@@ -1,8 +1,10 @@
 import os
 import time
+
 os.chdir("..")
 
 from api.src.nlp_api.web.models import MetaTag
+from nlp_engine.policy.policy_tag import policy_tag
 from nlp_engine.dc_service.dc_service_tag import dc_service_tag
 from nlp_engine.nlp_engine_status.status import set_status_busy, set_status_available
 from nlp_engine.policy_code.policy_code_tag import policy_code_tag
@@ -33,7 +35,7 @@ def execute(request):
         elif i == "policy-code":
             tag_value = policy_code_tag(request.text)
         elif i == "DC.Policy":
-            tag_value = "501"
+            tag_value = policy_tag(request.text)
         else:
             tag_value = "This tag does not exist"
         # https://github.com/zalando/connexion/issues/458

@@ -27,7 +27,7 @@ def policy_code_classification(vector):
 
     path_to_policy_code_taxonomy = str(dir_path.parent.absolute()).replace("\\","/") + "/doc/policy_codes_last_layer.csv"
 
-    policy_code_last_layer = pd.read_csv(path_to_policy_code_taxonomy)
+    policy_code_last_layer = pd.read_csv(filepath_or_buffer=path_to_policy_code_taxonomy,  header=0, sep=";")
 
     tag = []
 

@@ -3,6 +3,7 @@ import time
 
 os.chdir("..")
 
+from nlp_engine.iso3166.iso3166_tag import iso3166_tag
 from api.src.nlp_api.web.models import MetaTag
 from nlp_engine.policy.policy_tag import policy_tag
 from nlp_engine.dc_service.dc_service_tag import dc_service_tag
@@ -27,7 +28,7 @@ def execute(request):
         if i == "sdg-tag":
             tag_value = "sdg"
         elif i == "DC.ISO3166":
-            tag_value = "501"
+            tag_value = iso3166_tag(request.url)
         elif i =="DC.location":
             tag_value = "501"
         elif i == "DC.service":

@@ -10,7 +10,7 @@ def embedding(text: str):
     
     This function returns the embeddings thanks to the language models
     """
-    dir_path = os.path.dirname(os.path.realpath(__file__)).parent.replace("\\", "/")
+    dir_path = os.path.dirname(os.path.realpath(__file__).parent).replace("\\", "/")
 
     path_to_model = dir_path + "/language_model/Word2Vec.model"
     model = Word2Vec.load(path_to_model)

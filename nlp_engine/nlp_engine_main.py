@@ -18,7 +18,7 @@ def execute(request):
     """
     print(request)
 
-    set_status_busy()
+    # set_status_busy()
     metatags_in_request = request.metatags
     metatags_in_response = []
     for i in metatags_in_request:
@@ -41,6 +41,6 @@ def execute(request):
         metatags_in_response.append(metatag)
         print(metatags_in_response)
 
-    set_status_available()
+    # set_status_available()
 
     return metatags_in_response

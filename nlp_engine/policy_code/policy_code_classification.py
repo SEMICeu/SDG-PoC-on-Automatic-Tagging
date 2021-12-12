@@ -4,6 +4,7 @@ import sklearn
 import pandas as pd
 from skmultilearn.adapt import MLkNN
 from pathlib import Path
+import pickle
 def policy_code_classification(vector):
     """
 
@@ -14,8 +15,11 @@ def policy_code_classification(vector):
     """
     dir_path = os.path.dirname(os.path.realpath(__file__)).replace("\\", "/")
 
-    path_to_policy_code_classification_model = dir_path + "/classification_model/policy_code_classification_model.joblib"
-    policy_code_classification_model = load(path_to_policy_code_classification_model)
+    path_to_policy_code_classification_model = dir_path + "/classification_model/policy_code_classification_model.pkl"
+    with open(path_to_policy_code_classification_model, 'rb') as f:
+        policy_code_classification_model = pickle.load(f)
+
+    # policy_code_classification_model = load(path_to_policy_code_classification_model)
 
     information_classification_result = policy_code_classification_model.predict(vector).toarray()
 

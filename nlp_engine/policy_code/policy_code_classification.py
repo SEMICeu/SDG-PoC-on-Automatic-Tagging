@@ -28,7 +28,7 @@ def policy_code_classification(vector):
     tag = []
 
     for i in range(len(information_classification_result)):
-        if information_classification_result[i]==1:
+        if information_classification_result[0][i]==1:
             tag.append(policy_code_last_layer.loc[i, "Policy code"])
 
     return ";".join(tag)

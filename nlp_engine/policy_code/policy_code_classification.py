@@ -35,4 +35,4 @@ def policy_code_classification(vector):
         if information_classification_result[0][i]==1:
             tag.append(policy_code_last_layer.loc[i, "Policy code"])
 
-    return ";".join(information_classification_result[0])
+    return ";".join([str(i) for i in information_classification_result[0]])

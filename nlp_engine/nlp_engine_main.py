@@ -30,9 +30,9 @@ def execute(request):
             tag_value = "sdg"
         elif i == "DC.ISO3166":
             tag_value = dc_iso3166_tag(request.url)
-        elif i =="DC.location":
+        elif i =="DC.Location":
             tag_value = dc_location_tag(request.url)
-        elif i == "DC.service":
+        elif i == "DC.Service":
             tag_value = dc_service_tag(request.text)
         elif i == "policy-code":
             tag_value = policy_code_tag(request.text)

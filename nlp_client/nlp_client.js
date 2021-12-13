@@ -114,11 +114,11 @@ function callApi(page_url, metatagsArray, json) {
       }).done(function (response2) {
         console.log("[NLP-POC] Response: " + JSON.stringify(response2));
         response2.metatags.forEach((element) => {
-          if(element.value !=  json.api.operations[1].notimplemented || 
-            element.value !=  json.api.operations[1].notfound || 
-            element.value != "")  
-          console.log("*"+element.value+"*")
-          insertMetaTag(element.name, element.value);
+          if(element.value !==  json.api.operations[1].notimplemented && 
+             element.value !==  json.api.operations[1].notfound &&
+             element.value !== "") {
+            insertMetaTag(element.name, element.value);
+        }
         });
       })
       .fail(function (jqXHR, textStatus) {

@@ -22,4 +22,7 @@ def dc_service_tag(body: str):
 
     tag = dc_service_classification(embedded_body)
 
+    if tag == "":
+        tag = "404"
+
     return tag

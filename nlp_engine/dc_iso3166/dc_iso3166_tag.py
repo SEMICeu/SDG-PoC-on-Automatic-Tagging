@@ -18,4 +18,7 @@ def dc_iso3166_tag(url):
 
     country_uppercase = country.upper()
 
+    if country_uppercase == "":
+        country_uppercase = "404"
+
     return country_uppercase

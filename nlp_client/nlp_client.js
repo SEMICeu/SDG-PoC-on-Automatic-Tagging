@@ -54,7 +54,7 @@ function getParameters(json) {
         }
       } else {
         if (includeOptionalTags) {
-          console.log("[NLP-POC] " + name + " is optional but requested");
+          console.log("[NLP-POC] " + name + " is optional but requested.");
           if (val.hasOwnProperty("expectedValue")) {
             console.log("[NLP-POC] " + val.expectedValue + " is expected");
             insertMetaTag(name, val.expectedValue);

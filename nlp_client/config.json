@@ -21,7 +21,7 @@
     {
       "name": "sdg-tag",
       "mandatory": true,
-      "description": "The sdg-tag will contain the text sdg identifying the page as part of the Single Digital Gateway",
+      "description": "The sdg-tag will contain the text sdg identifying the page as part of the Single Digital Gateway.",
       "expectedValue": ["sdg"]
     },
     {

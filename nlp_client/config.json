@@ -6,7 +6,7 @@
       {
         "name": "enhance",
         "method": "POST",
-        "timeout": 3000,
+        "timeout": 5000,
         "payload": "{\"metatags\":$METATAGS$,\"url\":$URL$,\"text\":$TEXT$}",
         "notimplemented": "501"
       }

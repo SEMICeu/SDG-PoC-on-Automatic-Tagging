@@ -21,11 +21,11 @@ def dc_service_classification(vector):
     procedure_classification_result = procedure_classification_model.predict(vector)
 
     if (information_classification_result == 1) and (procedure_classification_result == 0):
-        tag = "Information"
+        tag = "information"
     elif (information_classification_result == 0) and (procedure_classification_result == 1):
-        tag = "Procedure"
+        tag = "procedure"
     elif (information_classification_result == 1) and (procedure_classification_result == 1):
-        tag = "Information;Procedure"
+        tag = "information;procedure"
     else:
         tag = ""
 

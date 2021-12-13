@@ -21,5 +21,5 @@ def policy_code_tag(body: str):
 
     if tag == "":
         tag = "404"
-        
+
     return tag

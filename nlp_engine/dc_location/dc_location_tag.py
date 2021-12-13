@@ -27,4 +27,7 @@ def dc_location_tag(url):
         if row_nuts["nut3"] == country:
             location = row_nuts["label"]
 
+    if location == "":
+        location = "404"
+
     return location

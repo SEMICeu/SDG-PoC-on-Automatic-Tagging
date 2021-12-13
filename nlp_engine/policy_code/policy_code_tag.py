@@ -19,4 +19,7 @@ def policy_code_tag(body: str):
 
     tag = policy_code_classification(embedded_body)
 
+    if tag == "":
+        tag = "404"
+        
     return tag

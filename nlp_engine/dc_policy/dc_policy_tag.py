@@ -29,4 +29,8 @@ def dc_policy_tag(body: str):
             if i == row_policy_code["Policy code"]:
                 tag.append(row_policy_code["information or procedure"])
 
-    return ";".join(tag)
+    policy_tag = ";".join(tag)
+    if policy_tag == "":
+        policy_tag = "404"
+
+    return policy_tag

@@ -67,12 +67,12 @@
       ]
     },
     {
-      "name": "DC.location",
+      "name": "DC.Location",
       "mandatory": false,
       "description": "Describes the NUTS or LAU location id for which the content on the page is valid (http://purl.org/dc/terms/Location)"
     },
     {
-      "name": "DC.service",
+      "name": "DC.Service",
       "mandatory": true,
       "description": "It will contain the information about the type of content present on the page (http://purl.org/dc/dcmitype/Service)"
     },

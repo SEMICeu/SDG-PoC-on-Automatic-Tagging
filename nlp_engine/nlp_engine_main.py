@@ -1,10 +1,15 @@
 import os
 import time
+
 os.chdir("..")
 
+from nlp_engine.dc_iso3166.dc_iso3166_tag import dc_iso3166_tag
 from api.src.nlp_api.web.models import MetaTag
+from nlp_engine.dc_policy.dc_policy_tag import dc_policy_tag
 from nlp_engine.dc_service.dc_service_tag import dc_service_tag
 from nlp_engine.nlp_engine_status.status import set_status_busy, set_status_available
+from nlp_engine.policy_code.policy_code_tag import policy_code_tag
+from nlp_engine.dc_location.dc_location_tag import dc_location_tag
 def execute(request):
     """
 
@@ -17,22 +22,22 @@ def execute(request):
     """
     print(request)
 
-    set_status_busy()
+    # set_status_busy()
     metatags_in_request = request.metatags
     metatags_in_response = []
     for i in metatags_in_request:
         if i == "sdg-tag":
             tag_value = "sdg"
         elif i == "DC.ISO3166":
-            tag_value = "Tag of DC.ISO3166: still work in progress"
+            tag_value = dc_iso3166_tag(request.url)
         elif i =="DC.location":
-            tag_value = "Tag of DC.location: still work in progress"
+            tag_value = dc_location_tag(request.url)
         elif i == "DC.service":
             tag_value = dc_service_tag(request.text)
         elif i == "policy-code":
-            tag_value = "Tag of policy-code: still work in progress"
+            tag_value = policy_code_tag(request.text)
         elif i == "DC.Policy":
-            tag_value = "Tag of DC.Policy: still work in progress"
+            tag_value = dc_policy_tag(request.text)
         else:
             tag_value = "This tag does not exist"
         # https://github.com/zalando/connexion/issues/458
@@ -40,6 +45,6 @@ def execute(request):
         metatags_in_response.append(metatag)
         print(metatags_in_response)
 
-    set_status_available()
+    # set_status_available()
 
     return metatags_in_response

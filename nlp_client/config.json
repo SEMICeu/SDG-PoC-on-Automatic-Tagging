@@ -8,7 +8,8 @@
         "method": "POST",
         "timeout": 6000,
         "payload": "{\"metatags\":$METATAGS$,\"url\":$URL$,\"text\":$TEXT$}",
-        "notimplemented": "501"
+        "notimplemented": "501",
+        "notfound": "404"
       }
     ]
   },

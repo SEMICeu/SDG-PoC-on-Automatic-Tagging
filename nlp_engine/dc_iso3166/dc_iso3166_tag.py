@@ -1,5 +1,7 @@
 
 import tldextract
+from worldlib.database import Database
+import pycountry
 
 def dc_iso3166_tag(url):
     """
@@ -16,9 +18,15 @@ def dc_iso3166_tag(url):
 
     country = domain.split(".")[-1]
 
-    country_uppercase = country.upper()
+    db = Database()
 
-    if country_uppercase == "":
-        country_uppercase = "404"
+    country_tag = db.lookup_code(country)
 
-    return country_uppercase
+    pycountry_result = pycountry.countries.get(name=country_tag)
+
+    iso3166_tag = pycountry_result.alpha_2
+
+    if iso3166_tag == "":
+        iso3166_tag = "404"
+
+    return iso3166_tag

@@ -1,2 +1,6 @@
 api/src/nlp_api/core/config.yaml
 .venv/
+node_modules/
+.eslintrc.js
+package-lock.json
+package.json

@@ -4,7 +4,7 @@ function getConfig() {
   return $.getJSON("config.json");
 }
 
-function insertMetaTag(name, value, notimplemented) {
+function insertMetaTag(name, value) {
   console.log("[NLP-POC] inserting metatag " + name + " with value: " + value);
   $("head").append('<meta name="' + name + '" content="' + value + '">');
 }
@@ -32,10 +32,10 @@ function getParameters(json) {
       var mandatory = val.mandatory;
       if (mandatory) {
         console.log("[NLP-POC] " + name + " is mandatory");
-        if (val.hasOwnProperty("expectedValue")) {
+        if (Object.prototype.hasOwnProperty.call(val, "expectedValue")) {
           console.log("[NLP-POC] " + val.expectedValue + " is expected");
           insertMetaTag(name, val.expectedValue, );
-        } else if (val.hasOwnProperty("mapValue")) {
+        } else if (Object.prototype.hasOwnProperty.call(val, "mapValue")) {
           if (name === "DC.ISO3166") {
             if (val.listOfValues.includes(tld)) {
               insertMetaTag(name, tld);
@@ -55,7 +55,7 @@ function getParameters(json) {
       } else {
         if (includeOptionalTags) {
           console.log("[NLP-POC] " + name + " is optional but requested.");
-          if (val.hasOwnProperty("expectedValue")) {
+          if (Object.prototype.hasOwnProperty.call(val, "expectedValue")) {
             console.log("[NLP-POC] " + val.expectedValue + " is expected");
             insertMetaTag(name, val.expectedValue);
           } else {

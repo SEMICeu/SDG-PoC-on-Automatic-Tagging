@@ -1,29 +1,28 @@
 
 # define the converter function
-import pandas as pd
-import ssl
-import os
-
-from urllib.request import Request, urlopen
-import urllib3
 import json
-from bs4 import BeautifulSoup
-
-from urllib.parse import urlparse
-import yaml
-from pathlib import Path
-from datetime import datetime
-import time
-from selenium import webdriver
-from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
-from selenium.webdriver.common.by import By
-from selenium.common.exceptions import TimeoutException
-import urllib.request
-from requests.utils import requote_uri
+import os
 import re
-from http.client import IncompleteRead
 import socket
+import ssl
+import time
+import urllib.request
+from datetime import datetime
+from http.client import IncompleteRead
+from pathlib import Path
+from urllib.parse import urlparse
+from urllib.request import Request, urlopen
+
+import pandas as pd
+import yaml
+from bs4 import BeautifulSoup
+from requests.utils import requote_uri
+from selenium import webdriver
+from selenium.common.exceptions import TimeoutException
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.support.ui import WebDriverWait
+
 
 def get_config():
     my_path = Path(__file__).resolve()  # resolve to get rid of any symlinks
@@ -32,22 +31,25 @@ def get_config():
         config = yaml.load(config_file, Loader=yaml.FullLoader)
     return config
 
+
 def search(a_list, value):
     try:
         return a_list.index(value)
     except ValueError:
         return None
 
+
 def remove_tags(soup):
-  
+
     # parse html content
-  
+
     for data in soup(['style', 'script']):
         # Remove tags
         data.decompose()
-  
+
     # return data by retrieving the tag content
     return ' '.join(soup.stripped_strings)
+
 
 def converter():
     start_time = datetime.now()
@@ -61,7 +63,7 @@ def converter():
     # set up the scrapping agent
     headers = {'User-Agent': config['request']['header']['user_agent'],
                'X-Mashape-Key': config['request']['header']['x_mashape_key'],
-               'Connection' : config['request']['header']['connection']}
+               'Connection': config['request']['header']['connection']}
     gcontext = ssl.SSLContext()
 
     # filter on English HTML pages
@@ -100,13 +102,13 @@ def converter():
                 browser.get(url)
                 # print("selector:" + config['selectors'][found])
                 try:
-                    element = WebDriverWait(browser, config['selenium']['timeout']).until(
+                    WebDriverWait(browser, config['selenium']['timeout']).until(
                         EC.visibility_of_element_located((By.CSS_SELECTOR, config['selenium']['selectors'][found]))
                     )
                 except TimeoutException:
                     print("Timed out waiting for page to load")
                 webContent = browser.page_source
-                
+
             else:
                 request = Request(url=url, headers=headers)
                 response = urlopen(request, context=gcontext, timeout=config['request']['timeout'])
@@ -157,7 +159,7 @@ def converter():
 
                 title = title.replace('\t', '')
                 text = soup.get_text()
-                text= text.replace('\n', ' ').replace('\t', ' ')
+                text = text.replace('\n', ' ').replace('\t', ' ')
                 text = re.sub('\s{2,}', ' ', text)
                 html_list_json_file['html_list'].append({
                     'title': title,
@@ -184,7 +186,7 @@ def converter():
                 time.sleep(config['pause']['time'])
 
         except urllib.request.HTTPError as e:
-            if e.code==404:
+            if e.code == 404:
                 print(f"{url} is not found")
                 continue
         except urllib.error.URLError as e:
@@ -206,5 +208,7 @@ def converter():
 
     end_time = datetime.now()
     print('Duration: {}'.format(end_time - start_time))
+
+
 # run the converter function
 converter()

@@ -39,18 +39,6 @@ def search(a_list, value):
         return None
 
 
-def remove_tags(soup):
-
-    # parse html content
-
-    for data in soup(['style', 'script']):
-        # Remove tags
-        data.decompose()
-
-    # return data by retrieving the tag content
-    return ' '.join(soup.stripped_strings)
-
-
 def converter():
     start_time = datetime.now()
     # read excel files with all the urls

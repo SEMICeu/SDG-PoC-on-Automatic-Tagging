@@ -1,15 +1,13 @@
 import os
-import time
 
 os.chdir("..")
 
-from nlp_engine.dc_iso3166.dc_iso3166_tag import dc_iso3166_tag
+from nlp_engine.tags.dc_iso3166.dc_iso3166_tag import dc_iso3166_tag
 from api.src.nlp_api.web.models import MetaTag
-from nlp_engine.dc_policy.dc_policy_tag import dc_policy_tag
-from nlp_engine.dc_service.dc_service_tag import dc_service_tag
-from nlp_engine.nlp_engine_status.status import set_status_busy, set_status_available
-from nlp_engine.policy_code.policy_code_tag import policy_code_tag
-from nlp_engine.dc_location.dc_location_tag import dc_location_tag
+from nlp_engine.tags.dc_policy.dc_policy_tag import dc_policy_tag
+from nlp_engine.tags.dc_service.dc_service_tag import dc_service_tag
+from nlp_engine.tags.policy_code.policy_code_tag import policy_code_tag
+from nlp_engine.tags.dc_location.dc_location_tag import dc_location_tag
 def execute(request):
     """
 

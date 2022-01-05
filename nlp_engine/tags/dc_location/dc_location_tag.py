@@ -1,6 +1,6 @@
 
 
-from nlp_engine.dc_iso3166.dc_iso3166_tag import dc_iso3166_tag
+from nlp_engine.tags.dc_iso3166.dc_iso3166_tag import dc_iso3166_tag
 from pathlib import Path
 import os
 import pandas as pd

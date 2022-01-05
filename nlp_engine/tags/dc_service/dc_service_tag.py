@@ -1,7 +1,7 @@
 # from dc_service_preprocessing import dc_service_preprocessing
 # from dc_service_embedding import dc_service_embedding
 # from dc_service_classification import dc_service_classification
-from nlp_engine.dc_service.dc_service_classification import dc_service_classification
+from nlp_engine.tags.dc_service.dc_service_classification import dc_service_classification
 from nlp_engine.utils.embedding import embedding
 from nlp_engine.utils.preprocessing import preprocessing
 

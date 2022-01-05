@@ -3,7 +3,7 @@ import mysql.connector
 from pathlib import Path
 import yaml
 
-os.chdir("../..")
+os.chdir("../../..")
 
 def get_config_status():
 

@@ -1,4 +1,4 @@
-from nlp_engine.policy_code.policy_code_tag import policy_code_tag
+from nlp_engine.tags.policy_code.policy_code_tag import policy_code_tag
 from pathlib import Path
 import os
 import pandas as pd

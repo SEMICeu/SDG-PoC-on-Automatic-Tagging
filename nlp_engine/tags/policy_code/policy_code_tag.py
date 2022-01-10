@@ -1,6 +1,6 @@
 from nlp_engine.utils.embedding import embedding
 from nlp_engine.utils.preprocessing import preprocessing
-from nlp_engine.tags.policy_code import policy_code_classification
+from nlp_engine.tags.policy_code.policy_code_classification import policy_code_classification
 
 
 def policy_code_tag(body: str):

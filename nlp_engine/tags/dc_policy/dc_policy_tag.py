@@ -17,7 +17,7 @@ def dc_policy_tag(body: str):
 
     policy_code_array = policy_code.split(";")
 
-    dir_path = Path(os.path.dirname(os.path.realpath(__file__)))
+    dir_path = Path(os.path.dirname(os.path.dirname(os.path.realpath(__file__))))
 
     path_to_policy_code_taxonomy = str(dir_path.parent.absolute()).replace("\\","/") + "/doc/policy_codes_last_layer.csv"
 

@@ -31,4 +31,7 @@ def dc_iso3166_tag(url):
     except:
         iso3166_tag = "404"
 
+    if country == "eu":
+        iso3166_tag = "EU"
+
     return iso3166_tag

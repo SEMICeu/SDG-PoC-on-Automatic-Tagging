@@ -8,3 +8,4 @@ package.json
 Scripts/
 pyvenv.cfg
 Lib/
+nlp_engine/test

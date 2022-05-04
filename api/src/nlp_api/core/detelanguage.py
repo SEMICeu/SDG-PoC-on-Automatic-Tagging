@@ -21,7 +21,7 @@ def detectlanguage(text):
     language = detect(text)
     # your code
     elapsed_time = time.time() - start_time
-    print("detect time: " + elapsed_time)
+    print("detect time: " + str(elapsed_time))
     print("detected language: " + language)
     return language
 
@@ -61,4 +61,4 @@ def translate(texttotranslate, languagefrom, languageto):
     response = request.json()
 
     print(json.dumps(response, sort_keys=True, ensure_ascii=False, indent=4, separators=(',', ': ')))
-    return response["translations"][0]["text"]
+    return response[0]['translations'][0]['text']

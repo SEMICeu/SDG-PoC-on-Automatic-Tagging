@@ -8,9 +8,8 @@ import yaml
 from flask import jsonify
 from mysql.connector import Error
 
-from detelanguage import *
-
 from ..web.models import EnhanceRequest, EnhanceResponse, MetaTag, Status
+from .detelanguage import *
 
 
 def get_config():

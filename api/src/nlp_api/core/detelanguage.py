@@ -16,13 +16,13 @@ def get_config():
     return config
 
 def detectlanguage(text):
-    start_time = time.time()
+    # start_time = time.time()
 
     language = detect(text)
     # your code
     elapsed_time = time.time() - start_time
-    print("detect time: " + str(elapsed_time))
-    print("detected language: " + language)
+    # print("detect time: " + str(elapsed_time))
+    # print("detected language: " + language)
     return language
 
 def translate(texttotranslate, languagefrom, languageto):

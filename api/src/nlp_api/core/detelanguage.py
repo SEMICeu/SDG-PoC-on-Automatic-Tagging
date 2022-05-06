@@ -10,7 +10,7 @@ from langdetect import detect
 
 def get_config():
     my_path = Path(__file__).resolve()  # resolve to get rid of any symlinks
-    config_path = my_path.parent / 'config.yaml'
+    config_path = my_path.parent / 'configtranslate.yaml'
     with config_path.open() as config_file:
         config = yaml.load(config_file, Loader=yaml.FullLoader)
     return config
@@ -20,7 +20,7 @@ def detectlanguage(text):
 
     language = detect(text)
     # your code
-    elapsed_time = time.time() - start_time
+    # elapsed_time = time.time() - start_time
     # print("detect time: " + str(elapsed_time))
     # print("detected language: " + language)
     return language

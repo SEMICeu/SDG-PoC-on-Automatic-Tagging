@@ -3,5 +3,4 @@ mysql:
   db: nlp_poc
   username: nlp_poc_user
   password: nlp_poc_123!
-
   

@@ -1,4 +1,5 @@
 api/src/nlp_api/core/config.yaml
+api/src/nlp_api/core/configtranslate.yaml
 .venv/
 node_modules/
 .eslintrc.js

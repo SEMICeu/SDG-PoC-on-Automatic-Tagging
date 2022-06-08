@@ -1,0 +1,240 @@
+#pixcookie {
+    cursor: default;
+    font-family: 'Arial', sans-serif;
+}
+#pixcookie #pixcookie-regime {
+    font-size: 11px;
+    line-height: 11px;
+    padding: 12.5px 0 0 0;
+}
+#pixcookie #pixcookie-box {
+    position: fixed;
+    width: 640px;
+    min-height: 200px;
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 15px 30px 0 rgba(48,54,77,.1);
+    transition: all 0.2s cubic-bezier(0.39, 0.57, 0.58, 1.39);
+    bottom: -165px;
+    left: 3%;
+    z-index: 999999;
+}
+    #pixcookie #pixcookie-box.show {
+        bottom: 3%;
+    }
+#pixcookie #pixcookie-box #pixcookie-dialog {
+    position: relative;
+}
+    #pixcookie #pixcookie-box #pixcookie-dialog .btn {
+        display: inline-block;
+        font-weight: 400;
+        color: #212529;
+        text-align: center;
+        vertical-align: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        background-color: transparent;
+        border: 1px solid transparent;
+        padding: .375rem .75rem;
+        font-size: 1rem;
+        line-height: 1.5;
+        border-radius: .25rem;
+        transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+        padding: .25rem .5rem;
+        font-size: .875rem;
+        line-height: 1.5;
+        border-radius: .2rem !important;
+        cursor: pointer;
+    }
+        #pixcookie #pixcookie-box #pixcookie-dialog .btn-secondary {
+            color: #fff;
+            background-color: #6c757d;
+            border-color: #6c757d;
+        }
+        #pixcookie #pixcookie-box #pixcookie-dialog .btn-success {
+            color: #fff;
+            background-color: #32b751;
+            border-color: #32b751;
+        }
+        #pixcookie #pixcookie-box #pixcookie-dialog .btn-primary {
+            color: #fff;
+            background-color: #28a745;
+            border-color: #28a745;
+        }
+
+    #pixcookie #pixcookie-box #pixcookie-dialog p {
+        font-family: 'Open Sans', sans-serif;
+        font-weight: 400;
+    }
+    #pixcookie #pixcookie-box #pixcookie-dialog h5,
+    #pixcookie #pixcookie-box #pixcookie-dialog h6 {
+        font-family: 'Open Sans', sans-serif;
+        font-weight: 400;
+    }
+    #pixcookie #pixcookie-box #pixcookie-dialog h5 {
+        margin: 22.5px 0 12.5px 0;
+    }
+    #pixcookie #pixcookie-box #pixcookie-dialog h6 {
+        margin: 20px 0 12.5px 0;
+    }
+    #pixcookie #pixcookie-box #pixcookie-dialog .pixcookie-header {
+        padding: 15px 22.5px 12.5px 88px;
+    }
+        #pixcookie #pixcookie-box #pixcookie-dialog .pixcookie-header p {
+            font-size: 16px;
+            line-height: 30px;
+            margin: 0;
+        }
+    #pixcookie #pixcookie-box #pixcookie-dialog .pixcookie-body {
+        padding: 0 5.5px 22.5px 22.5px;
+    }
+        #pixcookie #pixcookie-box #pixcookie-dialog .pixcookie-body p {
+            font-size: 14px;
+            line-height: 23px;
+            margin: 0;
+        }
+            #pixcookie #pixcookie-box #pixcookie-dialog .pixcookie-body p#pixcookie-open-details,
+            #pixcookie #pixcookie-box #pixcookie-dialog .pixcookie-body p#pixcookie-close-details {
+                padding: 5.5px 0 0 0;
+                cursor: pointer;
+                color: #207934;
+            }
+    #pixcookie #pixcookie-box #pixcookie-dialog .pixcookie-footer {
+        padding: 22.5px 22.5px 0 22.5px;
+        border-top: 1px solid #efefef;
+    }
+        #pixcookie #pixcookie-box #pixcookie-dialog ul {
+            margin: 0 22.5px;
+            padding: 0 !important;
+        }
+        #pixcookie #pixcookie-box #pixcookie-dialog .pixcookie-footer .pixcookie-checkboxes {
+            padding: 12.5px 0;
+        }
+        #pixcookie #pixcookie-box #pixcookie-dialog .pixcookie-footer .pixcookie-checkbox {
+            display: inline-block;
+            width: auto;
+            margin-right: 22.5px;
+        }
+        #pixcookie #pixcookie-box #pixcookie-dialog .pixcookie-footer .pixcookie-checkbox input {
+            cursor: pointer;
+            -webkit-appearance: checkbox !important;
+            display: inline !important;
+        }
+        #pixcookie #pixcookie-box #pixcookie-dialog .pixcookie-footer .pixcookie-checkbox label {
+            margin: 0;
+        }
+
+#pixcookie #pixcookie-box #pixcookie-dialog #pixcookie-toggle-dialog {
+    position: absolute;
+    width: 30px;
+    right: 15px;
+    top: 15px;
+    cursor: pointer;
+}
+
+#pixcookie-toggle-dialog { transform: rotate(180deg) }
+#pixcookie-toggle-dialog.open { transform: rotate(0deg) }
+
+#pixcookie #pixcookie-box #pixcookie-dialog #pixcookie-easter-egg {
+    width: 55px;
+    height: 55px;
+    top: -5px;
+    left: 22px;
+    cursor: pointer;
+    transition: all 0.2s cubic-bezier(0.39, 0.57, 0.58, 1.39);
+    position: absolute;
+}
+    #pixcookie #pixcookie-box #pixcookie-dialog #pixcookie-easter-egg:hover {
+        transform: scale(1.12);
+    }
+
+#pixcookie #pixcookie-box #pixcookie-dialog #pixcookie-details {
+    height: 0.1px;
+    transition: all 0.2s cubic-bezier(0.39, 0.57, 0.58, 1.39);
+    overflow: hidden;
+}
+    #pixcookie #pixcookie-box #pixcookie-dialog #pixcookie-details.show {
+        height: 400px;
+        overflow-y: scroll;
+    }
+    #pixcookie #pixcookie-box #pixcookie-dialog #pixcookie-details p {
+        margin: 0 0 12.5px 0;
+    }
+
+@media only screen and (max-width: 550px) {
+    #pixcookie #pixcookie-box {
+        width: 90%;
+        left: 5%;
+        bottom: -300px;
+    }
+    #pixcookie #pixcookie-box #pixcookie-dialog .btn {
+        width: 100%;
+        margin-bottom: 6px;
+    }
+    #pixcookie #pixcookie-box #pixcookie-dialog .pixcookie-footer .pixcookie-checkbox {
+        width: 100%;
+        margin-right: 0;
+    }
+    #pixcookie #pixcookie-box #pixcookie-dialog .pixcookie-header {
+        padding: 65px 22.5px 0 22.5px;
+    }
+}
+tr:nth-child(even) {
+  /* background-color: #dddddd; */
+}
+tr.border_bottom {
+  border-bottom: 1px solid black;
+}
+/* thead, tbody, tr{
+  table-layout: fixed;
+  display: table;
+  width: 100%
+} */
+/* tbody {
+  display:block;
+  max-height: 400px;
+  overflow-y: scroll;
+  overflow-x: hidden;
+} */
+th, td {
+  text-align: left;
+}
+th {
+  font-size: 14px;
+}
+td {
+  /* border-bottom: 1px solid grey; */
+  padding:0;
+  margin: 0;
+  font-size: 12px;
+}
+td:nth-child(3),td:nth-child(4) {
+  width: 40px;
+  text-align: center;
+}
+td:nth-child(2) {
+  padding: 5px;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+  margin-bottom: 10px;
+}
+.table {
+  max-height: 300px;
+  overflow-y: scroll;
+  overflow-x:hidden;
+}
+
+td, th {
+  /* border: 1px solid #dddddd; */
+  text-align: left;
+  padding: 1px;
+}
+
+tr:nth-child(even) {
+  background-color: #f5f5f5;
+}

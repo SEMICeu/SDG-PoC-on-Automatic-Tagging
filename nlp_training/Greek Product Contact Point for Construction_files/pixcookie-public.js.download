@@ -1,0 +1,236 @@
+(function( $ ) {
+
+	$(document).ready( function() {
+		const pixCook = {
+			flavors : {
+				provider : 'www.neaodos.gr',
+				analytics : null,
+				hotjar : null,
+				functional : null
+			},
+			date : 'session',
+			open : false,
+			cookies : {
+				consent : false,
+				functional : false,
+				statistical : false,
+				necessary : true
+			},
+			serve : function() {
+				let js = '',
+					node = document.createElement('script');
+
+				node.type = 'text/javascript';
+
+				if (this.flavors.hotjar) {
+					js += "(function(h,o,t,j,a,r){h.hj=h.hj||function(){ (h.hj.q=h.hj.q||[]).push(arguments)};h._hjSettings={hjid:" + this.flavors.hotjar + ",hjsv:6};a=o.getElementsByTagName('head')[0]; r=o.createElement('script');r.async=1;r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;a.appendChild(r);})(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');";
+				}
+
+				if (this.flavors.analytics) {
+					js += "window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config','" + this.flavors.analytics + "');";
+
+					let jsfile = document.createElement('script');
+					jsfile.src = "https://www.googletagmanager.com/gtag/js?id=" + this.flavors.analytics;
+					jsfile.async = true;
+					document.body.appendChild(jsfile);
+				}
+
+				try {
+					node.appendChild(document.createTextNode(js));
+				} catch(e) {
+					node.text = js;
+				}
+
+				document.body.appendChild(node);
+			},
+			stove : function(state) {
+				document.getElementById('pixcookie').style.display = state;
+
+				if (state === 'block' && !this.open) {
+					this.dialog();
+				}
+			},
+			dialog : function() {
+				const eclick = function(e, f) {
+					document.getElementById(e).addEventListener('click', f);
+				}
+				const echange = function(e) {
+					return document.getElementById(e).classList;
+				}
+				const echeck = function(e) {
+					return document.getElementById(e).checked;
+				}
+				const eset = function(name, val) {
+					document.cookie = name + "=" + (val)  + "; expires=" + pixCook.date + "; path=/";
+				}
+				const order = function() {
+					if (pixCook.cookies.functional) {
+						eset('PIX_COOKIES_FUNCTIONAL', '1');
+					} else {
+						eset('PIX_COOKIES_FUNCTIONAL', '0');
+					}
+
+					if (pixCook.cookies.statistical) {
+						eset('PIX_COOKIES_STATISTICAL', '1');
+						pixCook.serve();
+					} else {
+						eset('PIX_COOKIES_STATISTICAL', '0');
+					}
+
+					eset('PIX_COOKIES_CONSENT', '1');
+					pixCook.cookies.consent = true;
+					pixCook.stove('none');
+				}
+
+				// Bind elements.
+
+				eclick('pixcookie-easter-egg', function() {
+					echange('pixcookie-box').toggle('show');
+				});
+
+				eclick('pixcookie-open-details', function() {
+					echange('pixcookie-details').add('show');
+				});
+
+				eclick('pixcookie-close-details', function() {
+					echange('pixcookie-details').remove('show');
+				});
+
+				eclick('pixcookie-accept-necessary', function() {
+					pixCook.cookies.functional = false;
+					pixCook.cookies.statistical = false;
+
+					order();
+				});
+
+				eclick('pixcookie-accept-selected', function() {
+					pixCook.cookies.functional = echeck('pixcookie-check-functional');
+					pixCook.cookies.statistical = echeck('pixcookie-check-statistical');
+
+					order();
+				});
+
+				eclick('pixcookie-accept-all', function() {
+					pixCook.cookies.functional = true;
+					pixCook.cookies.statistical = true;
+
+					order();
+				});
+
+				this.open = true;
+			},
+			init : function(flavors) {
+				// Store settings.
+
+				if (typeof flavors != 'undefined') {
+					this.flavors.provider = flavors.provider || '';
+					this.flavors.analytics = flavors.analytics || '';
+					this.flavors.hotjar = flavors.hotjar || '';
+					this.flavors.functional = flavors.functional || null;
+				}
+
+				// Handle functional settings.
+
+				if (typeof flavors.functional == 'object'){
+					let html = '';
+					flavors.functional.forEach( cookie => {
+						html +=
+							`
+							<h5>${cookie.name}</h5>
+							<ul>
+							<li>Purpose: ${cookie.purpose.el}.</li>
+							<li>Expiry: ${cookie.expiry.el}.</li>
+							<li>Type: ${cookie.type}.</li>
+							</ul>
+							`
+					});
+
+					document.getElementById('pixcookie-functional').innerHTML = html;
+				}
+
+				document.getElementById('pixcookie-provider').innerHTML = this.flavors.provider;
+
+				// Set the expiration date for cookies.
+
+				let date = new Date();
+				date.setTime(date.getTime() + (30*24*60*60*1000));
+				this.date = date.toUTCString();
+
+				// Read and collect cookies.
+
+				let storage = document.cookie.split(';');
+
+				for (let i = 0; i < storage.length; i++) {
+					let cookie = storage[i].split('=');
+					cookie[0] = cookie[0].trim();
+
+					if (cookie[1] === '1') {
+						switch(cookie[0]) {
+							case 'PIX_COOKIES_CONSENT':
+								this.cookies.consent = true;
+								break;
+							case 'PIX_COOKIES_FUNCTIONAL':
+								this.cookies.functional = true;
+								break;
+							case 'PIX_COOKIES_STATISTICAL':
+								this.cookies.statistical = true;
+								break;
+							default:
+								break;
+						}
+					}
+				}
+
+				// Set the necessary cookie no matter what.
+
+				document.cookie = 'PIX_COOKIES_NECESSARY' + "=" + ('1')  + "; expires=" + this.date + "; path=/";
+
+				// Run statistical scripts.
+
+				if (this.cookies.statistical) {
+					this.serve();
+				}
+
+				// Show the dialog.
+				console.log(this.cookies.consent);
+				if (!this.cookies.consent) {
+					this.stove('block');
+				}
+			}
+		};
+
+		pixCook.init({
+			provider : 'https://pcp.ggb.gr/',
+			hotjar : '',
+			analytics : '',
+			functional : [
+				{
+					 name : "WP_LOGIN_COOKIE",
+					 purpose : {
+						   en : "Allows the system to identify the session user",
+						   el : "Allows the system to identify the session user"
+					 },
+					 expiry: {
+						   en: '30 days',
+						   el: '30 μέρες'
+					 },
+					 type : "HTTP"
+				 },
+				 {
+					  name : "WP_TEST_COOKIE",
+					  purpose : {
+							en : "The purpose of test cookie is to test",
+							el : "Allows the system to identify the session user"
+					  },
+					  expiry: {
+							en: '30 days',
+							el: '30 μέρες'
+					  },
+					  type : "HTTP"
+				  }
+			 ]
+		});
+	})
+
+
+})( jQuery );

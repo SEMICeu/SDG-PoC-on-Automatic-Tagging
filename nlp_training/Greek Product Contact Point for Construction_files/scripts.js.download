@@ -1,0 +1,12 @@
+(function($) {
+    $(document).ready(function() {
+        console.log('load');
+
+        if ( $('span.regulation-contact').length == 0
+			|| $('span.regulation-contact > p').text() === 'null'
+			|| $('span.regulation-contact > p').text() === ''
+		   ) {
+            $(".regulation-contact").html("<p><a href=\"mailto:dkp.b@ggde.gr\">dkp.b@ggde.gr</a></p>");
+        }
+    });
+})(jQuery);

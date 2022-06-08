@@ -1,0 +1,163 @@
+/* 
+Theme Name: Hello Elementor Child
+Theme URI: https://github.com/elementor/hello-theme/
+Description: Hello Elementor Child is a child theme of Hello Elementor, created by Elementor team
+Author: Elementor Team
+Author URI: https://elementor.com/
+Template: hello-elementor
+Version: 1.0.1
+Text Domain: hello-elementor-child
+License: GNU General Public License v3 or later.
+License URI: https://www.gnu.org/licenses/gpl-3.0.html
+Tags: flexible-header, custom-colors, custom-menu, custom-logo, editor-style, featured-images, rtl-language-support, threaded-comments, translation-ready
+*/
+
+#applications-form {
+  font-family: "Roboto", sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+#applications-form p {
+  width: 100%;
+}
+#applications-form p label {
+  width: 100%;
+  padding-bottom: 5px;
+  font-size: 16px;
+  font-weight: 400;
+  color: #315ca1;
+}
+#applications-form input[type="submit"] {
+  width: 100%;
+  color: white;
+  background-color: #315ca1;
+  border: 1px solid #315ca1;
+  border-radius: 25px 25px 25px 25px;
+  padding: 15px 30px;
+  font-size: 16px;
+  line-height: 16px;
+  font-weight: 500;
+}
+#applications-form input[type="text"],
+#applications-form input[type="tel"],
+#applications-form input[type="email"],
+#applications-form select {
+  background-color: #ffffff;
+  border-color: #c3c3c3;
+  border-width: 2px 2px 2px 2px;
+  border-radius: 2px 2px 2px 2px;
+}
+/* SEARCH PAGE START */
+.search-wrapper {
+  max-width: 1400px;
+  width: 100%;
+  margin: auto;
+  /* min-height: calc(100vh - 166px);
+  padding: 200px 0px 0px 0px; */
+  font-family: "Roboto", sans-serif;
+}
+.search-wrapper form label {
+  width: 100%;
+  padding-bottom: 5px;
+  font-size: 16px;
+  font-weight: 400;
+  color: #315ca1;
+}
+.search-wrapper form input[type="text"],
+.search-wrapper form select {
+  background-color: #ffffff;
+  border-color: #c3c3c3;
+  border-width: 2px 2px 2px 2px;
+  border-radius: 2px 2px 2px 2px;
+  margin-bottom: 10px;
+}
+.search-wrapper form button {
+  color: white;
+  background-color: #315ca1;
+  border: 1px solid #315ca1;
+  border-radius: 25px 25px 25px 25px;
+  padding: 15px 30px;
+  font-size: 16px;
+  line-height: 16px;
+  font-weight: 500;
+  outline: unset;
+}
+.search-wrapper form button:hover {
+  color: white;
+  background-color: #315ca1;
+  border: 1px solid #315ca1;
+  border-radius: 25px 25px 25px 25px;
+  padding: 15px 30px;
+  font-size: 16px;
+  line-height: 16px;
+  font-weight: 500;
+  outline: unset;
+}
+.search-wrapper form button:focus {
+  color: white;
+  background-color: #315ca1;
+  border: 1px solid #315ca1;
+  border-radius: 25px 25px 25px 25px;
+  padding: 15px 30px;
+  font-size: 16px;
+  line-height: 16px;
+  font-weight: 500;
+  outline: unset;
+}
+.search-wrapper .search-results {
+  margin-top: 30px;
+}
+.search-wrapper .search-results a {
+  color: #315ca1;
+}
+/* SEARCH PAGE END */
+/* SINGLE REGULATION START */
+.regulation-wrapper .regulation-content {
+  font-family: "Ubuntu", sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+.regulation-wrapper .norm-content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+.regulation-wrapper span {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  margin-bottom: 30px;
+}
+.regulation-wrapper h1 {
+  font-size: 25px;
+  margin: 0px 0px 10px 0px;
+}
+.regulation-wrapper .regulation_approval {
+  font-size: 18px;
+  margin: 0px 0px 30px 0px;
+}
+.regulation-wrapper a {
+  color: #315ca1;
+}
+
+.regulation-related {
+  font-family: "Ubuntu", sans-serif;
+}
+.regulation-related ul {
+  list-style-type: none;
+  padding: 0px;
+}
+.regulation-related ul li {
+  margin-bottom: 10px;
+}
+.regulation-related ul li a {
+  color: #0e4194 !important;
+  font-weight: 500;
+}
+/* SINGLE REGULATION END */

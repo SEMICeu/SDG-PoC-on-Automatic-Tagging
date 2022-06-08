@@ -1,0 +1,36 @@
+<html>
+    <head>
+        <style>
+            div {
+                padding:10px;
+            }
+        </style>
+        <script src="sendRequest.js" type="javascript"></script>
+        <script src="refresh.js"     type="javascript"></script>
+    </head>
+    <body>
+        <div>
+            <textarea id="textAreaOriginal" cols="50" rows="5" placeholder="Write the text to translate here."></textarea>
+            <textarea id="textAreaTranslation"cols="50" rows="5"placeholder="The translation will be displayed here."></textarea>
+        </div>
+        <div>
+            <span>Source language:</span>
+            <select id="sourceLanguageCombo">
+                <option value="DE">DE
+                <option value="EN">EN
+                <option value="FR">FR
+            </select>
+        </div>
+        <div>
+            <span>Target language:</span>
+            <select id="targetLanguageCombo">
+                <option value="DE">DE
+                <option value="EN">EN
+                <option value="FR">FR
+            </select>
+        </div>
+        <div>
+            <button id="submitButton">Translate!</button>
+        </div>
+    </body>
+</html>

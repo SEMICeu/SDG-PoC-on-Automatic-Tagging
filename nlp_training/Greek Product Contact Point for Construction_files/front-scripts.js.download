@@ -1,0 +1,23 @@
+jQuery(document).ready(function ($) {
+  var mobile = false;
+  if ($(window).width() < 768) {
+    mobile = true;
+  }
+  $.ajax({
+    type: "POST",
+    data: { is_mobile: mobile },
+    url:
+      window.location.protocol +
+      "//" +
+      window.location.host +
+      "/" +
+      "/wp-content/plugins/custom-statistics/includes/ajax_front.php",
+    error: function (qXHR, textStatus, errorThrow) {
+      if (qXHR.status > 0)
+        console.log("Error: " + textStatus + " " + errorThrow);
+    },
+    success: function (data, textStatus, jqXHR) {
+      console.log(data);
+    },
+  });
+});

@@ -1,0 +1,186 @@
+Column1;url;sdg_tag;ISO3166;Location;Service;policy_code;Policy
+0;https://europa.eu/youreurope/citizens/consumers/consumers-dispute-resolution/index_en.htm;sdg;404;404;information;404;404
+1;https://europa.eu/youreurope/citizens/consumers/consumers-dispute-resolution/informal-dispute-resolution/index_en.htm;sdg;404;404;information;404;404
+2;https://europa.eu/youreurope/citizens/consumers/consumers-dispute-resolution/out-of-court-procedures/index_en.htm;sdg;404;404;information;404;404
+3;https://europa.eu/youreurope/citizens/consumers/energy-supply/access-use-energy-services/index_en.htm;sdg;404;404;information;404;404
+4;https://europa.eu/youreurope/citizens/consumers/energy-supply/complaints-dispute-resolution/index_en.htm;sdg;404;404;information;404;404
+5;https://europa.eu/youreurope/citizens/consumers/energy-supply/contracts-energy-consumption/index_en.htm;sdg;404;404;information;404;404
+6;https://europa.eu/youreurope/citizens/consumers/energy-supply/index_en.htm;sdg;404;404;information;404;404
+7;https://europa.eu/youreurope/citizens/consumers/financial-products-and-services/bank-accounts-eu/index_en.htm;sdg;404;404;information;404;404
+8;https://europa.eu/youreurope/citizens/consumers/financial-products-and-services/consumer-credits-and-loans/index_en.htm;sdg;404;404;information;404;404
+9;https://europa.eu/youreurope/citizens/consumers/financial-products-and-services/index_en.htm;sdg;404;404;information;404;404
+10;https://europa.eu/youreurope/citizens/consumers/financial-products-and-services/insurance-products/index_en.htm;sdg;404;404;information;404;404
+11;https://europa.eu/youreurope/citizens/consumers/financial-products-and-services/investment-products/index_en.htm;sdg;404;404;information;404;404
+12;https://europa.eu/youreurope/citizens/consumers/financial-products-and-services/mortgages/index_en.htm;sdg;404;404;information;404;404
+13;https://europa.eu/youreurope/citizens/consumers/financial-products-and-services/payments-transfers-cheques/index_en.htm;sdg;404;404;information;404;404
+14;https://europa.eu/youreurope/citizens/consumers/internet-telecoms/access-online-content-abroad/index_en.htm;sdg;404;404;information;404;404
+15;https://europa.eu/youreurope/citizens/consumers/internet-telecoms/data-protection-online-privacy/index_en.htm;sdg;404;404;information;404;404
+16;https://europa.eu/youreurope/citizens/consumers/internet-telecoms/index_en.htm;sdg;404;404;information;404;404
+17;https://europa.eu/youreurope/citizens/consumers/internet-telecoms/internet-access/index_en.htm;sdg;404;404;information;404;404
+18;https://europa.eu/youreurope/citizens/consumers/internet-telecoms/mobile-roaming-costs/index_en.htm;sdg;404;404;information;404;404
+19;https://europa.eu/youreurope/citizens/consumers/internet-telecoms/telecommunication-services/index_en.htm;sdg;404;404;information;F1;getting medical treatment in another Member State
+20;https://europa.eu/youreurope/citizens/consumers/shopping/contract-information/index_en.htm;sdg;404;404;information;404;404
+21;https://europa.eu/youreurope/citizens/consumers/shopping/guarantees-returns/index_en.htm;sdg;404;404;information;404;404
+22;https://europa.eu/youreurope/citizens/consumers/shopping/index_en.htm;sdg;404;404;information;404;404
+23;https://europa.eu/youreurope/citizens/consumers/shopping/pricing-payments/index_en.htm;sdg;404;404;information;404;404
+24;https://europa.eu/youreurope/citizens/consumers/shopping/shipping-delivery/index_en.htm;sdg;404;404;information;404;404
+25;https://europa.eu/youreurope/citizens/consumers/shopping/shopping-consumer-rights/index_en.htm;sdg;404;404;information;404;404
+26;https://europa.eu/youreurope/citizens/consumers/shopping/vat/index_en.htm;sdg;404;404;information;A4;transport of animals, plants, alcohol, tobacco, cigarettes and other goods when travelling in the Union
+27;https://europa.eu/youreurope/citizens/consumers/unfair-treatment/index_en.htm;sdg;404;404;information;404;404
+28;https://europa.eu/youreurope/citizens/consumers/unfair-treatment/unfair-commercial-practices/index_en.htm;sdg;404;404;information;404;404
+29;https://europa.eu/youreurope/citizens/consumers/unfair-treatment/unfair-contract-terms/index_en.htm;sdg;404;404;information;404;404
+30;https://europa.eu/youreurope/citizens/consumers/unfair-treatment/unfair-pricing/index_en.htm;sdg;404;404;information;404;404
+31;https://europa.eu/youreurope/citizens/education/research/index_en.htm;sdg;404;404;information;404;404
+32;https://europa.eu/youreurope/citizens/education/research/jobs/index_en.htm;sdg;404;404;information;404;404
+33;https://europa.eu/youreurope/citizens/education/research/tax/index_en.htm;sdg;404;404;information;404;404
+34;https://europa.eu/youreurope/citizens/education/school/enrol/index_en.htm;sdg;404;404;information;404;404
+35;https://europa.eu/youreurope/citizens/education/school/index_en.htm;sdg;404;404;information;404;404
+36;https://europa.eu/youreurope/citizens/education/school/partner/index_en.htm;sdg;404;404;information;404;404
+37;https://europa.eu/youreurope/citizens/education/traineeships/financial/index_en.htm;sdg;404;404;information;404;404
+38;https://europa.eu/youreurope/citizens/education/traineeships/index_en.htm;sdg;404;404;information;404;404
+39;https://europa.eu/youreurope/citizens/education/university/admission-entry-conditions/index_en.htm;sdg;404;404;information;404;404
+40;https://europa.eu/youreurope/citizens/education/university/fees-and-financial-help/index_en.htm;sdg;404;404;information;404;404
+41;https://europa.eu/youreurope/citizens/education/university/index_en.htm;sdg;404;404;information;404;404
+42;https://europa.eu/youreurope/citizens/education/university/recognition/index_en.htm;sdg;404;404;information;404;404
+43;https://europa.eu/youreurope/citizens/education/university/study-abroad/index_en.htm;sdg;404;404;information;404;404
+44;https://europa.eu/youreurope/citizens/education/university/working-while-studying/index_en.htm;sdg;404;404;information;404;404
+45;https://europa.eu/youreurope/citizens/education/volunteering/find/index_en.htm;sdg;404;404;information;404;404
+46;https://europa.eu/youreurope/citizens/education/volunteering/index_en.htm;sdg;404;404;information;404;404
+47;https://europa.eu/youreurope/citizens/education/volunteering/prepare/index_en.htm;sdg;404;404;information;404;404
+48;https://europa.eu/youreurope/citizens/family/children/abduction/index_en.htm;sdg;404;404;information;404;404
+49;https://europa.eu/youreurope/citizens/family/children/adoption/index_en.htm;sdg;404;404;information;404;404
+50;https://europa.eu/youreurope/citizens/family/children/index_en.htm;sdg;404;404;information;404;404
+51;https://europa.eu/youreurope/citizens/family/children/parental-responsibility/index_en.htm;sdg;404;404;information;404;404
+52;https://europa.eu/youreurope/citizens/family/couple/de-facto-unions/index_en.htm;sdg;404;404;information;404;404
+53;https://europa.eu/youreurope/citizens/family/couple/divorce-separation/index_en.htm;sdg;404;404;information;404;404
+54;https://europa.eu/youreurope/citizens/family/couple/getting-public-documents-accepted/index_en.htm;sdg;404;404;information;404;404
+55;https://europa.eu/youreurope/citizens/family/couple/index_en.htm;sdg;404;404;information;404;404
+56;https://europa.eu/youreurope/citizens/family/couple/maintenance/index_en.htm;sdg;404;404;information;404;404
+57;https://europa.eu/youreurope/citizens/family/couple/marriage/index_en.htm;sdg;404;404;information;404;404
+58;https://europa.eu/youreurope/citizens/family/couple/property-regimes-international-couples/index_en.htm;sdg;404;404;information;404;404
+59;https://europa.eu/youreurope/citizens/family/couple/registered-partners/index_en.htm;sdg;404;404;information;404;404
+60;https://europa.eu/youreurope/citizens/family/inheritances/index_en.htm;sdg;404;404;information;404;404
+61;https://europa.eu/youreurope/citizens/family/inheritances/managing-inheritance/index_en.htm;sdg;404;404;information;404;404
+62;https://europa.eu/youreurope/citizens/family/inheritances/planning-inheritance/index_en.htm;sdg;404;404;information;404;404
+63;https://europa.eu/youreurope/citizens/health/planned-healthcare/expenses-reimbursements/index_en.htm;sdg;404;404;information;F1;getting medical treatment in another Member State
+64;https://europa.eu/youreurope/citizens/health/planned-healthcare/get-more-info/index_en.htm;sdg;404;404;information;404;404
+65;https://europa.eu/youreurope/citizens/health/planned-healthcare/index_en.htm;sdg;404;404;information;404;404
+66;https://europa.eu/youreurope/citizens/health/planned-healthcare/right-to-treatment/index_en.htm;sdg;404;404;information;404;404
+67;https://europa.eu/youreurope/citizens/health/prescription-medicine-abroad/buying-medicines-online/index_en.htm;sdg;404;404;information;404;404
+68;https://europa.eu/youreurope/citizens/health/prescription-medicine-abroad/expenses-reimbursements/index_en.htm;sdg;404;404;information;404;404
+69;https://europa.eu/youreurope/citizens/health/prescription-medicine-abroad/index_en.htm;sdg;404;404;information;404;404
+70;https://europa.eu/youreurope/citizens/health/prescription-medicine-abroad/prescriptions/index_en.htm;sdg;404;404;information;404;404
+71;https://europa.eu/youreurope/citizens/health/unplanned-healthcare/going-to-doctor-hospital-abroad/index_en.htm;sdg;404;404;information;404;404
+72;https://europa.eu/youreurope/citizens/health/unplanned-healthcare/index_en.htm;sdg;404;404;information;404;404
+73;https://europa.eu/youreurope/citizens/health/unplanned-healthcare/payments-reimbursements/index_en.htm;sdg;404;404;information;404;404
+74;https://europa.eu/youreurope/citizens/health/unplanned-healthcare/temporary-stays/index_en.htm;sdg;404;404;information;404;404
+75;https://europa.eu/youreurope/citizens/health/when-living-abroad/health-insurance-cover/index_en.htm;sdg;404;404;information;404;404
+76;https://europa.eu/youreurope/citizens/health/when-living-abroad/index_en.htm;sdg;404;404;information;404;404
+77;https://europa.eu/youreurope/citizens/residence/brexit-residence-rights/eu-nationals-living-in-uk/index_en.htm;sdg;404;404;information;D4;requirements for residence cards for Union citizens and their family members, including family members who are not Union citizens
+78;https://europa.eu/youreurope/citizens/residence/brexit-residence-rights/index_en.htm;sdg;404;404;information;404;404
+79;https://europa.eu/youreurope/citizens/residence/brexit-residence-rights/uk-nationals-living-in-eu/index_en.htm;sdg;404;404;information;404;404
+80;https://europa.eu/youreurope/citizens/residence/documents-formalities/eu-family-members-registration/index_en.htm;sdg;404;404;information;D4;requirements for residence cards for Union citizens and their family members, including family members who are not Union citizens
+81;https://europa.eu/youreurope/citizens/residence/documents-formalities/eu-nationals-permanent-residence/index_en.htm;sdg;404;404;information;D4;requirements for residence cards for Union citizens and their family members, including family members who are not Union citizens
+82;https://europa.eu/youreurope/citizens/residence/documents-formalities/index_en.htm;sdg;404;404;information;404;404
+83;https://europa.eu/youreurope/citizens/residence/documents-formalities/non-eu-family-members-permanent-residence/index_en.htm;sdg;404;404;information;D4;requirements for residence cards for Union citizens and their family members, including family members who are not Union citizens
+84;https://europa.eu/youreurope/citizens/residence/documents-formalities/non-eu-family-members-residence-card/index_en.htm;sdg;404;404;information;D4;requirements for residence cards for Union citizens and their family members, including family members who are not Union citizens
+85;https://europa.eu/youreurope/citizens/residence/documents-formalities/registering-residence/index_en.htm;sdg;404;404;information;D4;requirements for residence cards for Union citizens and their family members, including family members who are not Union citizens
+86;https://europa.eu/youreurope/citizens/residence/documents-formalities/reporting-presence/index_en.htm;sdg;404;404;information;404;404
+87;https://europa.eu/youreurope/citizens/residence/elections-abroad/european-elections/index_en.htm;sdg;404;404;information;404;404
+88;https://europa.eu/youreurope/citizens/residence/elections-abroad/home-country-elections/index_en.htm;sdg;404;404;information;404;404
+89;https://europa.eu/youreurope/citizens/residence/elections-abroad/index_en.htm;sdg;404;404;information;404;404
+90;https://europa.eu/youreurope/citizens/residence/elections-abroad/municipal-elections/index_en.htm;sdg;404;404;information;404;404
+91;https://europa.eu/youreurope/citizens/residence/family-residence-rights/eu-wife-husband-children/index_en.htm;sdg;404;404;information;D4;requirements for residence cards for Union citizens and their family members, including family members who are not Union citizens
+92;https://europa.eu/youreurope/citizens/residence/family-residence-rights/index_en.htm;sdg;404;404;information;404;404
+93;https://europa.eu/youreurope/citizens/residence/family-residence-rights/jobseekers-family/index_en.htm;sdg;404;404;information;D4;requirements for residence cards for Union citizens and their family members, including family members who are not Union citizens
+94;https://europa.eu/youreurope/citizens/residence/family-residence-rights/non-eu-wife-husband-children/index_en.htm;sdg;404;404;information;D4;requirements for residence cards for Union citizens and their family members, including family members who are not Union citizens
+95;https://europa.eu/youreurope/citizens/residence/family-residence-rights/other-family/index_en.htm;sdg;404;404;information;D4;requirements for residence cards for Union citizens and their family members, including family members who are not Union citizens
+96;https://europa.eu/youreurope/citizens/residence/family-residence-rights/parents/index_en.htm;sdg;404;404;information;D4;requirements for residence cards for Union citizens and their family members, including family members who are not Union citizens
+97;https://europa.eu/youreurope/citizens/residence/family-residence-rights/partners/index_en.htm;sdg;404;404;information;D4;requirements for residence cards for Union citizens and their family members, including family members who are not Union citizens
+98;https://europa.eu/youreurope/citizens/residence/residence-rights/inactive-citizens/index_en.htm;sdg;404;404;information;404;404
+99;https://europa.eu/youreurope/citizens/residence/residence-rights/index_en.htm;sdg;404;404;information;404;404
+100;https://europa.eu/youreurope/citizens/residence/residence-rights/jobseekers/index_en.htm;sdg;404;404;information;404;404
+101;https://europa.eu/youreurope/citizens/residence/residence-rights/pensioners/index_en.htm;sdg;404;404;information;D4;requirements for residence cards for Union citizens and their family members, including family members who are not Union citizens
+102;https://europa.eu/youreurope/citizens/residence/residence-rights/students/index_en.htm;sdg;404;404;information;D4;requirements for residence cards for Union citizens and their family members, including family members who are not Union citizens
+103;https://europa.eu/youreurope/citizens/residence/residence-rights/workers/index_en.htm;sdg;404;404;information;D4;requirements for residence cards for Union citizens and their family members, including family members who are not Union citizens
+104;https://europa.eu/youreurope/citizens/travel/brexit-travel-documents/eu-nationals-living-uk/index_en.htm;sdg;404;404;information;D4;requirements for residence cards for Union citizens and their family members, including family members who are not Union citizens
+105;https://europa.eu/youreurope/citizens/travel/brexit-travel-documents/index_en.htm;sdg;404;404;information;404;404
+106;https://europa.eu/youreurope/citizens/travel/brexit-travel-documents/uk-nationals-living-eu-country/index_en.htm;sdg;404;404;information;D4;requirements for residence cards for Union citizens and their family members, including family members who are not Union citizens
+107;https://europa.eu/youreurope/citizens/travel/carry/alcohol-tobacco-cash/index_en.htm;sdg;404;404;information;A4;transport of animals, plants, alcohol, tobacco, cigarettes and other goods when travelling in the Union
+108;https://europa.eu/youreurope/citizens/travel/carry/animal-plant/index_en.htm;sdg;404;404;information;404;404
+109;https://europa.eu/youreurope/citizens/travel/carry/index_en.htm;sdg;404;404;information;404;404
+110;https://europa.eu/youreurope/citizens/travel/carry/luggage-restrictions/index_en.htm;sdg;404;404;information;404;404
+111;https://europa.eu/youreurope/citizens/travel/carry/meat-dairy-animal/index_en.htm;sdg;404;404;information;M2;product rules and requirements
+112;https://europa.eu/youreurope/citizens/travel/carry/using-euro/index_en.htm;sdg;404;404;information;404;404
+113;https://europa.eu/youreurope/citizens/travel/driving-abroad/car-rental-abroad/index_en.htm;sdg;404;404;information;404;404
+114;https://europa.eu/youreurope/citizens/travel/driving-abroad/driving-licence-and-insurance/index_en.htm;sdg;404;404;information;404;404
+115;https://europa.eu/youreurope/citizens/travel/driving-abroad/index_en.htm;sdg;404;404;information;404;404
+116;https://europa.eu/youreurope/citizens/travel/driving-abroad/road-rules-and-safety/index_en.htm;sdg;404;404;information;404;404
+117;https://europa.eu/youreurope/citizens/travel/entry-exit/eu-citizen/index_en.htm;sdg;404;404;information;404;404
+118;https://europa.eu/youreurope/citizens/travel/entry-exit/expired-lost-passports/index_en.htm;sdg;404;404;information;404;404
+119;https://europa.eu/youreurope/citizens/travel/entry-exit/index_en.htm;sdg;404;404;information;404;404
+120;https://europa.eu/youreurope/citizens/travel/entry-exit/non-eu-family/index_en.htm;sdg;404;404;information;D4;requirements for residence cards for Union citizens and their family members, including family members who are not Union citizens
+121;https://europa.eu/youreurope/citizens/travel/entry-exit/non-eu-nationals/index_en.htm;sdg;404;404;information;404;404
+122;https://europa.eu/youreurope/citizens/travel/entry-exit/travel-documents-minors/index_en.htm;sdg;404;404;information;404;404
+123;https://europa.eu/youreurope/citizens/travel/holidays/index_en.htm;sdg;404;404;information;404;404
+124;https://europa.eu/youreurope/citizens/travel/holidays/package-travel/index_en.htm;sdg;404;404;information;404;404
+125;https://europa.eu/youreurope/citizens/travel/holidays/timeshare/index_en.htm;sdg;404;404;information;404;404
+126;https://europa.eu/youreurope/citizens/travel/passenger-rights/air/index_en.htm;sdg;404;404;information;404;404
+127;https://europa.eu/youreurope/citizens/travel/passenger-rights/bus-and-coach/index_en.htm;sdg;404;404;information;404;404
+128;https://europa.eu/youreurope/citizens/travel/passenger-rights/index_en.htm;sdg;404;404;information;404;404
+129;https://europa.eu/youreurope/citizens/travel/passenger-rights/rail/index_en.htm;sdg;404;404;information;404;404
+130;https://europa.eu/youreurope/citizens/travel/passenger-rights/ship/index_en.htm;sdg;404;404;information;404;404
+131;https://europa.eu/youreurope/citizens/travel/security-and-emergencies/airport-airline-security/index_en.htm;sdg;404;404;information;404;404
+132;https://europa.eu/youreurope/citizens/travel/security-and-emergencies/emergency/index_en.htm;sdg;404;404;information;404;404
+133;https://europa.eu/youreurope/citizens/travel/security-and-emergencies/emergency-assistance-vehicles-ecall/index_en.htm;sdg;404;404;information;404;404
+134;https://europa.eu/youreurope/citizens/travel/security-and-emergencies/index_en.htm;sdg;404;404;information;404;404
+135;https://europa.eu/youreurope/citizens/travel/transport-disability/index_en.htm;sdg;404;404;information;404;404
+136;https://europa.eu/youreurope/citizens/travel/transport-disability/parking-card-disabilities-people/index_en.htm;sdg;404;404;information;404;404
+137;https://europa.eu/youreurope/citizens/travel/transport-disability/reduced-mobility/index_en.htm;sdg;404;404;information;404;404
+138;https://europa.eu/youreurope/citizens/travel/travel-and-covid/index_en.htm;sdg;404;404;information;404;404
+139;https://europa.eu/youreurope/citizens/vehicles/cars/buying-leasing-car-abroad/index_en.htm;sdg;404;404;information;404;404
+140;https://europa.eu/youreurope/citizens/vehicles/cars/company-cars/index_en.htm;sdg;404;404;information;404;404
+141;https://europa.eu/youreurope/citizens/vehicles/cars/index_en.htm;sdg;404;404;information;404;404
+142;https://europa.eu/youreurope/citizens/vehicles/cars/vat-buying-selling-cars/index_en.htm;sdg;404;404;information;A4;transport of animals, plants, alcohol, tobacco, cigarettes and other goods when travelling in the Union
+143;https://europa.eu/youreurope/citizens/vehicles/driving-licence/driving-licence-exchange-recognition/index_en.htm;sdg;404;404;information;C2;acquiring and renewing a driving licence
+144;https://europa.eu/youreurope/citizens/vehicles/driving-licence/driving-licence-renewal/index_en.htm;sdg;404;404;information;404;404
+145;https://europa.eu/youreurope/citizens/vehicles/driving-licence/get-driving-licence/index_en.htm;sdg;404;404;information;404;404
+146;https://europa.eu/youreurope/citizens/vehicles/driving-licence/index_en.htm;sdg;404;404;information;404;404
+147;https://europa.eu/youreurope/citizens/vehicles/insurance/accident/index_en.htm;sdg;404;404;information;F1;getting medical treatment in another Member State
+148;https://europa.eu/youreurope/citizens/vehicles/insurance/index_en.htm;sdg;404;404;information;404;404
+149;https://europa.eu/youreurope/citizens/vehicles/insurance/validity/index_en.htm;sdg;404;404;information;404;404
+150;https://europa.eu/youreurope/citizens/vehicles/registration/formalities/index_en.htm;sdg;404;404;information;404;404
+151;https://europa.eu/youreurope/citizens/vehicles/registration/index_en.htm;sdg;404;404;information;404;404
+152;https://europa.eu/youreurope/citizens/vehicles/registration/registration-abroad/index_en.htm;sdg;404;404;information;404;404
+153;https://europa.eu/youreurope/citizens/vehicles/registration/taxes-abroad/index_en.htm;sdg;404;404;information;404;404
+154;https://europa.eu/youreurope/citizens/work/professional-qualifications/apply-permanent-provision-services/index_en.htm;sdg;404;404;information;404;404
+155;https://europa.eu/youreurope/citizens/work/professional-qualifications/apply-temporary-provision-services/index_en.htm;sdg;404;404;information;404;404
+156;https://europa.eu/youreurope/citizens/work/professional-qualifications/brexit/index_en.htm;sdg;404;404;information;404;404
+157;https://europa.eu/youreurope/citizens/work/professional-qualifications/european-professional-card/index_en.htm;sdg;404;404;information;404;404
+158;https://europa.eu/youreurope/citizens/work/professional-qualifications/european-professional-card-documents/index_en.htm;sdg;404;404;information;404;404
+159;https://europa.eu/youreurope/citizens/work/professional-qualifications/index_en.htm;sdg;404;404;information;404;404
+160;https://europa.eu/youreurope/citizens/work/professional-qualifications/professional-bodies-language-requirements/index_en.htm;sdg;404;404;information;404;404
+161;https://europa.eu/youreurope/citizens/work/professional-qualifications/regulated-professions/index_en.htm;sdg;404;404;information;404;404
+162;https://europa.eu/youreurope/citizens/work/retire-abroad/index_en.htm;sdg;404;404;information;404;404
+163;https://europa.eu/youreurope/citizens/work/retire-abroad/state-pensions-abroad/index_en.htm;sdg;404;404;information;404;404
+164;https://europa.eu/youreurope/citizens/work/retire-abroad/supplementary-pensions-abroad/index_en.htm;sdg;404;404;information;404;404
+165;https://europa.eu/youreurope/citizens/work/taxes/double-taxation/index_en.htm;sdg;404;404;information;404;404
+166;https://europa.eu/youreurope/citizens/work/taxes/income-taxes-abroad/index_en.htm;sdg;404;404;information;404;404
+167;https://europa.eu/youreurope/citizens/work/taxes/index_en.htm;sdg;404;404;information;404;404
+168;https://europa.eu/youreurope/citizens/work/unemployment-and-benefits/cannot-find-work-abroad/index_en.htm;sdg;404;404;information;404;404
+169;https://europa.eu/youreurope/citizens/work/unemployment-and-benefits/cannot-find-work-abroad/index_en.htm;sdg;404;404;information;404;404
+170;https://europa.eu/youreurope/citizens/work/unemployment-and-benefits/country-coverage/index_en.htm;sdg;404;404;information;404;404
+171;https://europa.eu/youreurope/citizens/work/unemployment-and-benefits/death-grants/index_en.htm;sdg;404;404;information;404;404
+172;https://europa.eu/youreurope/citizens/work/unemployment-and-benefits/family-benefits/index_en.htm;sdg;404;404;information;D4;requirements for residence cards for Union citizens and their family members, including family members who are not Union citizens
+173;https://europa.eu/youreurope/citizens/work/unemployment-and-benefits/index_en.htm;sdg;404;404;information;404;404
+174;https://europa.eu/youreurope/citizens/work/unemployment-and-benefits/social-security/index_en.htm;sdg;404;404;information;404;404
+175;https://europa.eu/youreurope/citizens/work/unemployment-and-benefits/social-security-forms/index_en.htm;sdg;404;404;information;404;404
+176;https://europa.eu/youreurope/citizens/work/unemployment-and-benefits/transferring-unemployment-benefits/index_en.htm;sdg;404;404;information;404;404
+177;https://europa.eu/youreurope/citizens/work/unemployment-and-benefits/unemployment/index_en.htm;sdg;404;404;information;404;404
+178;https://europa.eu/youreurope/citizens/work/work-abroad/access-to-jobs-in-the-public-sector/index_en.htm;sdg;404;404;information;404;404
+179;https://europa.eu/youreurope/citizens/work/work-abroad/cross-border-commuters/index_en.htm;sdg;404;404;information;404;404
+180;https://europa.eu/youreurope/citizens/work/work-abroad/equal-treatment-with-nationals/index_en.htm;sdg;404;404;information;404;404
+181;https://europa.eu/youreurope/citizens/work/work-abroad/index_en.htm;sdg;404;404;information;404;404
+182;https://europa.eu/youreurope/citizens/work/work-abroad/posted-workers/index_en.htm;sdg;404;404;information;404;404
+183;https://europa.eu/youreurope/citizens/work/work-abroad/work-in-public-sector-abroad/index_en.htm;sdg;404;404;information;404;404
+184;https://europa.eu/youreurope/citizens/work/work-abroad/work-permits/index_en.htm;sdg;404;404;information;404;404

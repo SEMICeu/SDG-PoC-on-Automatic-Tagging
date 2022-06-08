@@ -1,0 +1,26 @@
+file:
+  input: cpsv-pilot.xlsx
+  output: data/html_data.json
+request:
+  header:
+    user_agent: Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2228.0 Safari/537.3
+    x_mashape_key: XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+    connection: keep-alive
+  timeout: 30
+filter:
+  language: en
+  country: Greece
+selenium:
+  timeout: 10
+  url_list:
+    - https://www.gov.gr
+    - https://www.lakemedelsverket.se
+  selectors:
+    - p.sdg-content
+    - div.area-page__narrow-wrapper
+pause:
+  time: 2
+  exception:
+    time: 5
+    url_list: 
+      - https://business.gov.nl
